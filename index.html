@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,1350 +12,1416 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --bg-primary: #0a0e27;
-            --bg-secondary: #151b3d;
-            --bg-tertiary: #1e2749;
-            --bg-card: rgba(30, 39, 73, 0.6);
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --accent-primary: #6366f1;
-            --accent-secondary: #8b5cf6;
-            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            --accent-shows: #f97316;
-            --accent-shows-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --info: #3b82f6;
-            --border: rgba(148, 163, 184, 0.1);
-            --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            --glow: 0 0 20px rgba(99, 102, 241, 0.3);
-            --glow-shows: 0 0 20px rgba(249, 115, 22, 0.3);
-        }
+```
+    :root {
+        --bg-primary: #0a0e27;
+        --bg-secondary: #151b3d;
+        --bg-tertiary: #1e2749;
+        --bg-card: rgba(30, 39, 73, 0.6);
+        --text-primary: #ffffff;
+        --text-secondary: #94a3b8;
+        --accent-primary: #6366f1;
+        --accent-secondary: #8b5cf6;
+        --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        --accent-shows: #f97316;
+        --accent-shows-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+        --success: #10b981;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --info: #3b82f6;
+        --border: rgba(148, 163, 184, 0.1);
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        --glow: 0 0 20px rgba(99, 102, 241, 0.3);
+        --glow-shows: 0 0 20px rgba(249, 115, 22, 0.3);
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-        }
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        min-height: 100vh;
+        position: relative;
+    }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
-        }
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+    }
 
-        body.shows-mode::before {
-            background: radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(234, 88, 12, 0.1) 0%, transparent 50%);
-        }
+    body.shows-mode::before {
+        background: radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(234, 88, 12, 0.1) 0%, transparent 50%);
+    }
 
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-        /* Header Styles */
-        header {
-            background: rgba(21, 27, 61, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 25px 0;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--border);
-        }
+    /* Header Styles */
+    header {
+        background: rgba(21, 27, 61, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 25px 0;
+        margin-bottom: 40px;
+        border-bottom: 1px solid var(--border);
+    }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
+    h1 {
+        font-size: 2.5rem;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 800;
+        letter-spacing: -1px;
+    }
 
-        body.shows-mode h1 {
-            background: var(--accent-shows-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    body.shows-mode h1 {
+        background: var(--accent-shows-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
 
-        .media-toggle {
-            display: flex;
-            gap: 10px;
-            background: var(--bg-tertiary);
-            padding: 6px;
-            border-radius: 12px;
-        }
+    .media-toggle {
+        display: flex;
+        gap: 10px;
+        background: var(--bg-tertiary);
+        padding: 6px;
+        border-radius: 12px;
+    }
 
-        .media-toggle button {
-            padding: 10px 20px;
-            background: transparent;
-            box-shadow: none;
-            font-size: 0.95rem;
-        }
+    .media-toggle button {
+        padding: 10px 20px;
+        background: transparent;
+        box-shadow: none;
+        font-size: 0.95rem;
+    }
 
-        .media-toggle button.active {
-            background: var(--accent-gradient);
-        }
+    .media-toggle button.active {
+        background: var(--accent-gradient);
+    }
 
-        body.shows-mode .media-toggle button.active {
-            background: var(--accent-shows-gradient);
-        }
+    body.shows-mode .media-toggle button.active {
+        background: var(--accent-shows-gradient);
+    }
 
-        .header-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+    .header-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
 
-        .header-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
+    .header-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
 
-        .stat-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+    .stat-card {
+        background: var(--bg-card);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
 
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent-gradient);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--accent-gradient);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
 
-        body.shows-mode .stat-card::before {
-            background: var(--accent-shows-gradient);
-        }
+    body.shows-mode .stat-card::before {
+        background: var(--accent-shows-gradient);
+    }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-            border-color: var(--accent-primary);
-        }
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+        border-color: var(--accent-primary);
+    }
 
-        body.shows-mode .stat-card:hover {
-            border-color: var(--accent-shows);
-        }
+    body.shows-mode .stat-card:hover {
+        border-color: var(--accent-shows);
+    }
 
-        .stat-card:hover::before {
-            transform: scaleX(1);
-        }
+    .stat-card:hover::before {
+        transform: scaleX(1);
+    }
 
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-        }
+    .stat-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+    }
 
-        body.shows-mode .stat-value {
-            background: var(--accent-shows-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    body.shows-mode .stat-value {
+        background: var(--accent-shows-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
 
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-top: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
 
-        /* Search Section */
-        .search-section {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-        }
+    /* Search Section */
+    .search-section {
+        background: var(--bg-card);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+    }
 
-        .search-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+    .search-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
 
-        .search-header h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
+    .search-header h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
 
-        .bulk-mode-toggle {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--bg-tertiary);
-            padding: 8px 16px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    .bulk-mode-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--bg-tertiary);
+        padding: 8px 16px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
 
-        .bulk-mode-toggle:hover {
-            background: var(--accent-primary);
-        }
+    .bulk-mode-toggle:hover {
+        background: var(--accent-primary);
+    }
 
-        body.shows-mode .bulk-mode-toggle:hover {
-            background: var(--accent-shows);
-        }
+    body.shows-mode .bulk-mode-toggle:hover {
+        background: var(--accent-shows);
+    }
 
-        .toggle-switch {
-            width: 44px;
-            height: 24px;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
+    .toggle-switch {
+        width: 44px;
+        height: 24px;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
 
-        .toggle-switch.active {
-            background: var(--accent-primary);
-        }
+    .toggle-switch.active {
+        background: var(--accent-primary);
+    }
 
-        body.shows-mode .toggle-switch.active {
-            background: var(--accent-shows);
-        }
+    body.shows-mode .toggle-switch.active {
+        background: var(--accent-shows);
+    }
 
-        .toggle-switch::after {
-            content: '';
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            background: white;
-            border-radius: 50%;
-            top: 3px;
-            left: 3px;
-            transition: all 0.3s ease;
-        }
+    .toggle-switch::after {
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        background: white;
+        border-radius: 50%;
+        top: 3px;
+        left: 3px;
+        transition: all 0.3s ease;
+    }
 
-        .toggle-switch.active::after {
-            left: 23px;
-        }
+    .toggle-switch.active::after {
+        left: 23px;
+    }
 
-        .search-box {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+    .search-box {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
 
-        .search-input-wrapper {
-            flex: 1;
-            position: relative;
-        }
+    .search-input-wrapper {
+        flex: 1;
+        position: relative;
+    }
 
-        input[type="text"], input[type="number"] {
-            width: 100%;
-            padding: 16px 20px;
-            background: var(--bg-tertiary);
-            border: 2px solid transparent;
-            border-radius: 12px;
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
+    input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 16px 20px;
+        background: var(--bg-tertiary);
+        border: 2px solid transparent;
+        border-radius: 12px;
+        color: var(--text-primary);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
 
-        input[type="text"]:focus, input[type="number"]:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-            box-shadow: var(--glow);
-        }
+    input[type="text"]:focus, input[type="number"]:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: var(--glow);
+    }
 
-        body.shows-mode input[type="text"]:focus, 
-        body.shows-mode input[type="number"]:focus {
-            border-color: var(--accent-shows);
-            box-shadow: var(--glow-shows);
-        }
+    body.shows-mode input[type="text"]:focus, 
+    body.shows-mode input[type="number"]:focus {
+        border-color: var(--accent-shows);
+        box-shadow: var(--glow-shows);
+    }
 
-        .advanced-search {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid var(--border);
-        }
+    .advanced-search {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid var(--border);
+    }
 
-        select {
-            padding: 12px 16px;
-            background: var(--bg-tertiary);
-            border: 2px solid transparent;
-            border-radius: 12px;
-            color: var(--text-primary);
-            cursor: pointer;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
+    select {
+        padding: 12px 16px;
+        background: var(--bg-tertiary);
+        border: 2px solid transparent;
+        border-radius: 12px;
+        color: var(--text-primary);
+        cursor: pointer;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
 
-        select:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-        }
+    select:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+    }
 
-        body.shows-mode select:focus {
-            border-color: var(--accent-shows);
-        }
+    body.shows-mode select:focus {
+        border-color: var(--accent-shows);
+    }
 
-        select option {
-            background: var(--bg-secondary);
-        }
+    select option {
+        background: var(--bg-secondary);
+    }
 
-        button {
-            padding: 14px 28px;
-            background: var(--accent-gradient);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
+    button {
+        padding: 14px 28px;
+        background: var(--accent-gradient);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
 
-        body.shows-mode button {
-            background: var(--accent-shows-gradient);
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
-        }
+    body.shows-mode button {
+        background: var(--accent-shows-gradient);
+        box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+    }
 
-        button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
+    button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+    }
 
-        button:hover::before {
-            left: 100%;
-        }
+    button:hover::before {
+        left: 100%;
+    }
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
-        }
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    }
 
-        body.shows-mode button:hover {
-            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
-        }
+    body.shows-mode button:hover {
+        box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+    }
 
-        button:active {
+    button:active {
+        transform: translateY(0);
+    }
+
+    button:disabled {
+        background: var(--bg-tertiary);
+        cursor: not-allowed;
+        opacity: 0.5;
+        box-shadow: none;
+    }
+
+    .btn-secondary {
+        background: var(--bg-tertiary);
+        box-shadow: none;
+    }
+
+    .btn-secondary:hover {
+        background: var(--bg-secondary);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-small {
+        padding: 12px 20px;
+        font-size: 0.875rem;
+        min-height: 44px;
+    }
+
+    .btn-danger {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    }
+
+    .btn-success {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    /* Bulk Actions Bar */
+    .bulk-actions-bar {
+        position: fixed;
+        bottom: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg-secondary);
+        backdrop-filter: blur(20px);
+        padding: 20px 30px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        z-index: 1000;
+        transition: bottom 0.3s ease;
+    }
+
+    .bulk-actions-bar.active {
+        bottom: 30px;
+    }
+
+    .selected-count {
+        font-weight: 600;
+        color: var(--accent-primary);
+    }
+
+    body.shows-mode .selected-count {
+        color: var(--accent-shows);
+    }
+
+    /* Search Results */
+    .search-results {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+        max-height: 600px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px;
+    }
+
+    .search-results::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .search-results::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+        border-radius: 10px;
+    }
+
+    .search-results::-webkit-scrollbar-thumb {
+        background: var(--accent-primary);
+        border-radius: 10px;
+    }
+
+    body.shows-mode .search-results::-webkit-scrollbar-thumb {
+        background: var(--accent-shows);
+    }
+
+    .movie-card {
+        background: var(--bg-tertiary);
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        position: relative;
+    }
+
+    .movie-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        border-color: var(--accent-primary);
+    }
+
+    body.shows-mode .movie-card:hover {
+        border-color: var(--accent-shows);
+    }
+
+    .movie-card.selected {
+        border-color: var(--success);
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    }
+
+    .movie-card.selected::after {
+        content: '✓';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        background: var(--success);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        z-index: 10;
+    }
+
+    .movie-poster {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+    }
+
+    .movie-info {
+        padding: 15px;
+    }
+
+    .movie-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        line-height: 1.3;
+    }
+
+    .movie-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+    }
+
+    .movie-rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .movie-rating::before {
+        content: '⭐';
+    }
+
+    /* Filters Section */
+    .filters-section {
+        background: var(--bg-card);
+        backdrop-filter: blur(10px);
+        padding: 25px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        border: 1px solid var(--border);
+    }
+
+    .filters-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .filter-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .quick-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    /* Watchlist Section */
+    .watchlist-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .watchlist-header h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+    }
+
+    .view-mode {
+        display: flex;
+        gap: 10px;
+        background: var(--bg-tertiary);
+        padding: 6px;
+        border-radius: 12px;
+    }
+
+    .view-mode button {
+        padding: 8px 16px;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .view-mode button.active {
+        background: var(--accent-gradient);
+    }
+
+    body.shows-mode .view-mode button.active {
+        background: var(--accent-shows-gradient);
+    }
+
+    .watchlist-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    .watchlist-grid.list-view {
+        grid-template-columns: 1fr;
+    }
+
+    .watchlist-grid.simple-view {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        background: transparent;
+    }
+
+    .simple-list-item {
+        background: var(--bg-card);
+        backdrop-filter: blur(10px);
+        padding: 12px 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border-bottom: 1px solid var(--border);
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    .simple-list-item:hover {
+        background: var(--bg-tertiary);
+        padding-left: 20px;
+    }
+
+    .simple-list-item:first-child {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .simple-list-item:last-child {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        border-bottom: none;
+    }
+
+    .simple-thumbnail {
+        width: 50px;
+        height: 75px;
+        object-fit: cover;
+        border-radius: 6px;
+        flex-shrink: 0;
+        background: var(--bg-tertiary);
+    }
+
+    .simple-content {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .simple-title {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-primary);
+    }
+
+    .simple-meta {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-shrink: 0;
+    }
+
+    .simple-rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
+
+    .simple-rating .star {
+        font-size: 1.1rem;
+        cursor: default;
+        color: var(--border);
+        opacity: 0.5;
+    }
+
+    .simple-rating .star.filled {
+        color: #fbbf24;
+        opacity: 1;
+    }
+
+    .watchlist-item {
+        background: var(--bg-card);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .watchlist-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+        border-color: var(--accent-primary);
+    }
+
+    body.shows-mode .watchlist-item:hover {
+        border-color: var(--accent-shows);
+    }
+
+    .watchlist-item.list-view {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 20px;
+    }
+
+    .watchlist-poster {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+    }
+
+    .watchlist-item.list-view .watchlist-poster {
+        height: 100%;
+        aspect-ratio: auto;
+    }
+
+    .watchlist-details {
+        padding: 20px;
+    }
+
+    .watchlist-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 12px;
+    }
+
+    .watchlist-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
+
+    .watchlist-meta {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .status-to-watch {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
+    }
+
+    .status-watching {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+    }
+
+    .status-watched {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+    }
+
+    .genres-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 10px 0;
+    }
+
+    .genre-tag {
+        background: var(--bg-tertiary);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        border: 1px solid var(--border);
+    }
+
+    .rating-section {
+        margin: 15px 0;
+    }
+
+    .rating-label {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+    }
+
+    .stars {
+        display: flex;
+        gap: 6px;
+    }
+
+    .star {
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--bg-tertiary);
+        transition: all 0.2s ease;
+        text-shadow: 0 0 10px rgba(251, 191, 36, 0);
+    }
+
+    .star.filled {
+        color: #fbbf24;
+        text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    }
+
+    .star:hover {
+        transform: scale(1.2);
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 12px 0;
+    }
+
+    .tag {
+        background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    body.shows-mode .tag {
+        background: linear-gradient(135deg, var(--accent-shows) 0%, #ea580c 100%);
+    }
+
+    .notes {
+        width: 100%;
+        padding: 12px;
+        background: var(--bg-tertiary);
+        border: 2px solid transparent;
+        border-radius: 12px;
+        color: var(--text-primary);
+        resize: vertical;
+        min-height: 80px;
+        margin: 12px 0;
+        font-family: inherit;
+        transition: all 0.3s ease;
+    }
+
+    .notes:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: var(--glow);
+    }
+
+    body.shows-mode .notes:focus {
+        border-color: var(--accent-shows);
+        box-shadow: var(--glow-shows);
+    }
+
+    .import-textarea {
+        width: 100%;
+        padding: 15px;
+        background: var(--bg-tertiary);
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        color: var(--text-primary);
+        resize: vertical;
+        min-height: 300px;
+        font-family: 'Monaco', 'Courier New', monospace;
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .import-textarea:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: var(--glow);
+    }
+
+    body.shows-mode .import-textarea:focus {
+        border-color: var(--accent-shows);
+        box-shadow: var(--glow-shows);
+    }
+
+    .import-results {
+        margin-top: 20px;
+        padding: 20px;
+        background: var(--bg-tertiary);
+        border-radius: 12px;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .import-success {
+        color: var(--success);
+        margin-bottom: 10px;
+    }
+
+    .import-failed {
+        color: var(--danger);
+        margin-bottom: 10px;
+    }
+
+    .failed-movies-list {
+        margin-top: 10px;
+        padding: 10px;
+        background: var(--bg-secondary);
+        border-radius: 8px;
+    }
+
+    .failed-movies-list li {
+        padding: 5px 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .failed-movies-list li:last-child {
+        border-bottom: none;
+    }
+
+    .actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 14, 39, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 2000;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .modal-content {
+        background: var(--bg-secondary);
+        border-radius: 24px;
+        max-width: 900px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
             transform: translateY(0);
+            opacity: 1;
         }
+    }
 
-        button:disabled {
-            background: var(--bg-tertiary);
-            cursor: not-allowed;
-            opacity: 0.5;
-            box-shadow: none;
-        }
+    .modal-header {
+        padding: 25px 30px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--bg-card);
+    }
 
-        .btn-secondary {
-            background: var(--bg-tertiary);
-            box-shadow: none;
-        }
+    .modal-header h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
 
-        .btn-secondary:hover {
-            background: var(--bg-secondary);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
+    .close-modal {
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
 
-        .btn-small {
-            padding: 8px 16px;
-            font-size: 0.875rem;
-        }
+    .close-modal:hover {
+        background: var(--danger);
+        transform: rotate(90deg);
+    }
 
-        .btn-danger {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-        }
+    .modal-body {
+        padding: 30px;
+    }
 
-        .btn-success {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        }
+    .movie-details-grid {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 30px;
+        margin-bottom: 25px;
+    }
 
-        /* Bulk Actions Bar */
-        .bulk-actions-bar {
-            position: fixed;
-            bottom: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-secondary);
-            backdrop-filter: blur(20px);
-            padding: 20px 30px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            z-index: 1000;
-            transition: bottom 0.3s ease;
-        }
+    .movie-details-poster {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+    }
 
-        .bulk-actions-bar.active {
-            bottom: 30px;
-        }
+    .movie-details-info p {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: start;
+        gap: 10px;
+    }
 
-        .selected-count {
-            font-weight: 600;
-            color: var(--accent-primary);
-        }
+    .label {
+        font-weight: 700;
+        color: var(--accent-primary);
+        min-width: 100px;
+    }
 
-        body.shows-mode .selected-count {
-            color: var(--accent-shows);
-        }
+    body.shows-mode .label {
+        color: var(--accent-shows);
+    }
 
-        /* Search Results */
-        .search-results {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-            max-height: 600px;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            padding: 10px;
-        }
+    .cast-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
 
-        .search-results::-webkit-scrollbar {
-            width: 8px;
-        }
+    .cast-member {
+        text-align: center;
+    }
 
-        .search-results::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-            border-radius: 10px;
-        }
+    .cast-photo {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 8px;
+        background: var(--bg-tertiary);
+    }
 
-        .search-results::-webkit-scrollbar-thumb {
-            background: var(--accent-primary);
-            border-radius: 10px;
-        }
+    .cast-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
 
-        body.shows-mode .search-results::-webkit-scrollbar-thumb {
-            background: var(--accent-shows);
-        }
+    .cast-character {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+    }
 
-        .movie-card {
-            background: var(--bg-tertiary);
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-        }
+    /* Empty State */
+    .empty-state {
+        text-align: center;
+        padding: 80px 20px;
+        color: var(--text-secondary);
+    }
 
-        .movie-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: var(--accent-primary);
-        }
+    .empty-state-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        opacity: 0.3;
+    }
 
-        body.shows-mode .movie-card:hover {
-            border-color: var(--accent-shows);
-        }
+    .empty-state h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: var(--text-primary);
+    }
 
-        .movie-card.selected {
-            border-color: var(--success);
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-        }
+    .loading {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--text-secondary);
+    }
 
-        .movie-card.selected::after {
-            content: '✓';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            background: var(--success);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            z-index: 10;
-        }
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid var(--bg-tertiary);
+        border-top-color: var(--accent-primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+    }
 
-        .movie-poster {
-            width: 100%;
-            aspect-ratio: 2/3;
-            object-fit: cover;
-            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-        }
+    body.shows-mode .spinner {
+        border-top-color: var(--accent-shows);
+    }
 
-        .movie-info {
-            padding: 15px;
-        }
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
 
-        .movie-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            line-height: 1.3;
-        }
+    .error {
+        background: rgba(239, 68, 68, 0.1);
+        border: 2px solid var(--danger);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        color: var(--danger);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 
-        .movie-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
+    /* Statistics Modal */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
 
-        .movie-rating {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+    .stat-box {
+        background: var(--bg-tertiary);
+        padding: 20px;
+        border-radius: 16px;
+        text-align: center;
+        border: 1px solid var(--border);
+    }
 
-        .movie-rating::before {
-            content: '⭐';
-        }
+    .stat-box-value {
+        font-size: 2rem;
+        font-weight: 800;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
 
-        /* Filters Section */
-        .filters-section {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            padding: 25px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            border: 1px solid var(--border);
-        }
+    body.shows-mode .stat-box-value {
+        background: var(--accent-shows-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
 
-        .filters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
+    .stat-box-label {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-top: 8px;
+    }
 
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+    .chart-container {
+        background: var(--bg-tertiary);
+        padding: 20px;
+        border-radius: 16px;
+        margin-top: 20px;
+    }
 
-        .filter-label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .quick-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        /* Watchlist Section */
-        .watchlist-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .watchlist-header h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-        }
-
-        .view-mode {
-            display: flex;
-            gap: 10px;
-            background: var(--bg-tertiary);
-            padding: 6px;
-            border-radius: 12px;
-        }
-
-        .view-mode button {
-            padding: 8px 16px;
-            background: transparent;
-            box-shadow: none;
-        }
-
-        .view-mode button.active {
-            background: var(--accent-gradient);
-        }
-
-        body.shows-mode .view-mode button.active {
-            background: var(--accent-shows-gradient);
-        }
-
-        .watchlist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .watchlist-grid.list-view {
+    /* Responsive */
+    @media (max-width: 768px) {
+        .movie-details-grid {
             grid-template-columns: 1fr;
         }
 
-        .watchlist-grid.simple-view {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-            background: transparent;
+        .watchlist-item.list-view {
+            grid-template-columns: 100px 1fr;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+        }
+
+        .search-results {
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        }
+
+        .header-stats {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .stat-card {
+            padding: 15px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+        }
+
+        .search-section, .filters-section {
+            padding: 20px;
+        }
+
+        .advanced-search {
+            grid-template-columns: 1fr;
+        }
+
+        .filters-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .bulk-actions-bar {
+            width: 90%;
+            max-width: 400px;
+            padding: 15px 20px;
+        }
+
+        .modal-content {
+            margin: 10px;
+        }
+
+        .cast-grid {
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
         }
 
         .simple-list-item {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            padding: 12px 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .simple-list-item:hover {
-            background: var(--bg-tertiary);
-            padding-left: 20px;
-        }
-
-        .simple-list-item:first-child {
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-
-        .simple-list-item:last-child {
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-            border-bottom: none;
-        }
-
-        .simple-thumbnail {
-            width: 50px;
-            height: 75px;
-            object-fit: cover;
-            border-radius: 6px;
-            flex-shrink: 0;
-            background: var(--bg-tertiary);
+            padding: 10px;
         }
 
         .simple-content {
-            flex: 1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .simple-title {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-primary);
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
         }
 
         .simple-meta {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-shrink: 0;
+            width: 100%;
+            justify-content: space-between;
+            flex-wrap: nowrap;
         }
 
         .simple-rating {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+            flex-shrink: 0;
         }
 
         .simple-rating .star {
             font-size: 1rem;
-            cursor: default;
         }
 
-        .watchlist-item {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .watchlist-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-            border-color: var(--accent-primary);
-        }
-
-        body.shows-mode .watchlist-item:hover {
-            border-color: var(--accent-shows);
-        }
-
-        .watchlist-item.list-view {
-            display: grid;
-            grid-template-columns: 150px 1fr;
-            gap: 20px;
-        }
-
-        .watchlist-poster {
+        .view-mode {
             width: 100%;
-            aspect-ratio: 2/3;
-            object-fit: cover;
-            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
         }
 
-        .watchlist-item.list-view .watchlist-poster {
-            height: 100%;
-            aspect-ratio: auto;
-        }
-
-        .watchlist-details {
-            padding: 20px;
-        }
-
-        .watchlist-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 12px;
-        }
-
-        .watchlist-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .watchlist-meta {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .status-to-watch {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: white;
-        }
-
-        .status-watching {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            color: white;
-        }
-
-        .status-watched {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-        }
-
-        .genres-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin: 10px 0;
-        }
-
-        .genre-tag {
-            background: var(--bg-tertiary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            border: 1px solid var(--border);
-        }
-
-        .rating-section {
-            margin: 15px 0;
-        }
-
-        .rating-label {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        .stars {
-            display: flex;
-            gap: 6px;
-        }
-
-        .star {
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--bg-tertiary);
-            transition: all 0.2s ease;
-            text-shadow: 0 0 10px rgba(251, 191, 36, 0);
-        }
-
-        .star.filled {
-            color: #fbbf24;
-            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
-        }
-
-        .star:hover {
-            transform: scale(1.2);
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin: 12px 0;
-        }
-
-        .tag {
-            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        body.shows-mode .tag {
-            background: linear-gradient(135deg, var(--accent-shows) 0%, #ea580c 100%);
-        }
-
-        .notes {
-            width: 100%;
-            padding: 12px;
-            background: var(--bg-tertiary);
-            border: 2px solid transparent;
-            border-radius: 12px;
-            color: var(--text-primary);
-            resize: vertical;
-            min-height: 80px;
-            margin: 12px 0;
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .notes:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-            box-shadow: var(--glow);
-        }
-
-        body.shows-mode .notes:focus {
-            border-color: var(--accent-shows);
-            box-shadow: var(--glow-shows);
-        }
-
-        .import-textarea {
-            width: 100%;
-            padding: 15px;
-            background: var(--bg-tertiary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            color: var(--text-primary);
-            resize: vertical;
-            min-height: 300px;
-            font-family: 'Monaco', 'Courier New', monospace;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        .import-textarea:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-            box-shadow: var(--glow);
-        }
-
-        body.shows-mode .import-textarea:focus {
-            border-color: var(--accent-shows);
-            box-shadow: var(--glow-shows);
-        }
-
-        .import-results {
-            margin-top: 20px;
-            padding: 20px;
-            background: var(--bg-tertiary);
-            border-radius: 12px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .import-success {
-            color: var(--success);
-            margin-bottom: 10px;
-        }
-
-        .import-failed {
-            color: var(--danger);
-            margin-bottom: 10px;
-        }
-
-        .failed-movies-list {
-            margin-top: 10px;
-            padding: 10px;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-        }
-
-        .failed-movies-list li {
-            padding: 5px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .failed-movies-list li:last-child {
-            border-bottom: none;
-        }
-
-        .actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 14, 39, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: var(--bg-secondary);
-            border-radius: 24px;
-            max-width: 900px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-header {
-            padding: 25px 30px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--bg-card);
-        }
-
-        .modal-header h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .close-modal {
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            padding: 0;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .close-modal:hover {
-            background: var(--danger);
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 30px;
-        }
-
-        .movie-details-grid {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 30px;
-            margin-bottom: 25px;
-        }
-
-        .movie-details-poster {
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-        }
-
-        .movie-details-info p {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: start;
-            gap: 10px;
-        }
-
-        .label {
-            font-weight: 700;
-            color: var(--accent-primary);
-            min-width: 100px;
-        }
-
-        body.shows-mode .label {
-            color: var(--accent-shows);
-        }
-
-        .cast-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .cast-member {
-            text-align: center;
-        }
-
-        .cast-photo {
-            width: 100%;
-            aspect-ratio: 2/3;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            background: var(--bg-tertiary);
-        }
-
-        .cast-name {
+        .view-mode button {
+            flex: 1;
             font-size: 0.85rem;
-            font-weight: 600;
         }
 
-        .cast-character {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 80px 20px;
-            color: var(--text-secondary);
-        }
-
-        .empty-state-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            opacity: 0.3;
-        }
-
-        .empty-state h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .loading {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-secondary);
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid var(--bg-tertiary);
-            border-top-color: var(--accent-primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        body.shows-mode .spinner {
-            border-top-color: var(--accent-shows);
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .error {
-            background: rgba(239, 68, 68, 0.1);
-            border: 2px solid var(--danger);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            color: var(--danger);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* Statistics Modal */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .stat-box {
-            background: var(--bg-tertiary);
-            padding: 20px;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-
-        .stat-box-value {
-            font-size: 2rem;
-            font-weight: 800;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        body.shows-mode .stat-box-value {
-            background: var(--accent-shows-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-box-label {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-top: 8px;
-        }
-
-        .chart-container {
-            background: var(--bg-tertiary);
-            padding: 20px;
-            border-radius: 16px;
-            margin-top: 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .movie-details-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .watchlist-item.list-view {
-                grid-template-columns: 100px 1fr;
-            }
-
-            h1 {
-                font-size: 1.75rem;
-            }
-
-            .search-results {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            }
-
-            .header-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stat-card {
-                padding: 15px;
-            }
-
-            .stat-value {
-                font-size: 2rem;
-            }
-
-            .search-section, .filters-section {
-                padding: 20px;
-            }
-
-            .advanced-search {
-                grid-template-columns: 1fr;
-            }
-
-            .filters-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .bulk-actions-bar {
-                width: 90%;
-                max-width: 400px;
-                padding: 15px 20px;
-            }
-
-            .modal-content {
-                margin: 10px;
-            }
-
-            .cast-grid {
-                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            }
-
-            .simple-list-item {
-                padding: 10px;
-            }
-
-            .simple-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .simple-meta {
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .view-mode {
-                width: 100%;
-            }
-
-            .view-mode button {
-                flex: 1;
-                font-size: 0.85rem;
-            }
-
-            .header-left {
-                width: 100%;
-            }
-
-            .media-toggle {
-                width: 100%;
-            }
-
-            .media-toggle button {
-                flex: 1;
-            }
-        }
-
-        .progress-container {
-            margin: 15px 0;
-        }
-
-        .progress-bar {
+        .header-left {
             width: 100%;
-            height: 8px;
-            background: var(--bg-tertiary);
-            border-radius: 10px;
-            overflow: hidden;
         }
 
-        .progress-fill {
-            height: 100%;
-            background: var(--accent-gradient);
-            transition: width 0.3s ease;
+        .media-toggle {
+            width: 100%;
         }
 
-        body.shows-mode .progress-fill {
-            background: var(--accent-shows-gradient);
+        .media-toggle button {
+            flex: 1;
         }
-    </style>
+    }
+
+    .progress-container {
+        margin: 15px 0;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: var(--bg-tertiary);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: var(--accent-gradient);
+        transition: width 0.3s ease;
+    }
+
+    body.shows-mode .progress-fill {
+        background: var(--accent-shows-gradient);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--accent-gradient);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    }
+
+    body.shows-mode .back-to-top {
+        background: var(--accent-shows-gradient);
+        box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .back-to-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+    }
+
+    body.shows-mode .back-to-top:hover {
+        box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+    }
+
+    .back-to-top::before {
+        content: '↑';
+        font-size: 1.5rem;
+        color: white;
+        font-weight: bold;
+    }
+</style>
+```
+
 </head>
 <body>
     <header>
@@ -1379,1220 +1446,1525 @@
         </div>
     </header>
 
-    <div class="container">
-        <div class="search-section">
-            <div class="search-header">
-                <h2 id="searchTitle">🔍 Discover Movies</h2>
-                <div class="bulk-mode-toggle" onclick="toggleBulkMode()">
-                    <span>Bulk Mode</span>
-                    <div class="toggle-switch" id="bulkToggle"></div>
-                </div>
+```
+<div class="container">
+    <div class="search-section">
+        <div class="search-header">
+            <h2 id="searchTitle">🔍 Discover Movies</h2>
+            <div class="bulk-mode-toggle" onclick="toggleBulkMode()">
+                <span>Bulk Mode</span>
+                <div class="toggle-switch" id="bulkToggle"></div>
             </div>
-            
-            <div class="search-box">
-                <div class="search-input-wrapper">
-                    <input type="text" id="searchInput" placeholder="Search for movies...">
-                </div>
-                <button onclick="search()">Search</button>
-                <button class="btn-secondary" onclick="clearSearch()">Clear</button>
+        </div>
+        
+        <div class="search-box">
+            <div class="search-input-wrapper">
+                <input type="text" id="searchInput" placeholder="Search for movies...">
             </div>
-
-            <div class="advanced-search">
-                <div class="filter-group">
-                    <label class="filter-label">Genre</label>
-                    <select id="genreFilter">
-                        <option value="">All Genres</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">Year From</label>
-                    <input type="number" id="yearFrom" placeholder="e.g., 2000" min="1900" max="2026">
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">Year To</label>
-                    <input type="number" id="yearTo" placeholder="e.g., 2024" min="1900" max="2026">
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">Min Rating</label>
-                    <input type="number" id="minRating" placeholder="e.g., 7.0" min="0" max="10" step="0.1">
-                </div>
-            </div>
-
-            <div id="searchError" class="error" style="display: none;"></div>
-            <div id="searchResults" class="search-results"></div>
+            <button onclick="search()">Search</button>
+            <button class="btn-secondary" onclick="clearSearch()">Clear</button>
         </div>
 
-        <div class="filters-section">
-            <div class="filters-grid">
-                <div class="filter-group">
-                    <label class="filter-label">Status</label>
-                    <select id="statusFilter" onchange="filterWatchlist()">
-                        <option value="all">All</option>
-                        <option value="to-watch">To Watch</option>
-                        <option value="watching">Currently Watching</option>
-                        <option value="watched">Watched</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">Sort By</label>
-                    <select id="sortBy" onchange="filterWatchlist()">
-                        <option value="added">Date Added</option>
-                        <option value="title">Title</option>
-                        <option value="year">Year</option>
-                        <option value="rating">My Rating</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">My Genres</label>
-                    <select id="myGenreFilter" onchange="filterWatchlist()">
-                        <option value="">All Genres</option>
-                    </select>
-                </div>
+        <div class="advanced-search">
+            <div class="filter-group">
+                <label class="filter-label">Genre</label>
+                <select id="genreFilter">
+                    <option value="">All Genres</option>
+                </select>
             </div>
-            
-            <div class="quick-actions">
-                <button class="btn-secondary btn-small" onclick="pickRandom()">🎲 Random Pick</button>
-                <button class="btn-secondary btn-small" onclick="clearFilters()">🔄 Clear Filters</button>
+            <div class="filter-group">
+                <label class="filter-label">Year From</label>
+                <input type="number" id="yearFrom" placeholder="e.g., 2000" min="1900" max="2030">
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Year To</label>
+                <input type="number" id="yearTo" placeholder="e.g., 2024" min="1900" max="2030">
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Min Rating</label>
+                <input type="number" id="minRating" placeholder="e.g., 7.0" min="0" max="10" step="0.1">
             </div>
         </div>
 
-        <div class="watchlist-header">
-            <h2 id="watchlistTitle">My Watchlist (<span id="filteredCount">0</span>)</h2>
-            <div class="view-mode">
-                <button class="active" id="gridViewBtn" onclick="setViewMode('grid')">Grid</button>
-                <button id="listViewBtn" onclick="setViewMode('list')">List</button>
-                <button id="simpleViewBtn" onclick="setViewMode('simple')">Simple</button>
+        <div id="searchError" class="error" style="display: none;"></div>
+        <div id="searchResults" class="search-results"></div>
+    </div>
+
+    <div class="filters-section">
+        <div class="filters-grid">
+            <div class="filter-group">
+                <label class="filter-label">Status</label>
+                <select id="statusFilter" onchange="filterWatchlist()">
+                    <option value="all">All</option>
+                    <option value="to-watch">To Watch</option>
+                    <option value="watching">Currently Watching</option>
+                    <option value="watched">Watched</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Sort By</label>
+                <select id="sortBy" onchange="filterWatchlist()">
+                    <option value="added">Date Added</option>
+                    <option value="title">Title</option>
+                    <option value="year">Year</option>
+                    <option value="rating">My Rating</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">My Genres</label>
+                <select id="myGenreFilter" onchange="filterWatchlist()">
+                    <option value="">All Genres</option>
+                </select>
             </div>
         </div>
-
-        <div id="watchlist" class="watchlist-grid"></div>
-        <div id="emptyState" class="empty-state" style="display: none;">
-            <div class="empty-state-icon" id="emptyIcon">🎬</div>
-            <h3 id="emptyTitle">Your watchlist is empty</h3>
-            <p id="emptyText">Search above to start building your collection!</p>
+        
+        <div class="quick-actions">
+            <button class="btn-secondary btn-small" onclick="pickRandom()">🎲 Random Pick</button>
+            <button class="btn-secondary btn-small" onclick="clearFilters()">🔄 Clear Filters</button>
         </div>
     </div>
 
-    <!-- Bulk Actions Bar -->
-    <div class="bulk-actions-bar" id="bulkActionsBar">
-        <span class="selected-count"><span id="selectedCount">0</span> selected</span>
-        <button class="btn-small btn-success" onclick="addSelectedToWatchlist()">Add to Watchlist</button>
-        <button class="btn-small btn-secondary" onclick="clearSelection()">Clear</button>
-    </div>
-
-    <!-- Details Modal -->
-    <div id="movieModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle"></h2>
-                <button class="close-modal" onclick="closeModal()">×</button>
-            </div>
-            <div class="modal-body" id="modalBody"></div>
+    <div class="watchlist-header">
+        <h2 id="watchlistTitle">My Watchlist (<span id="filteredCount">0</span>)</h2>
+        <div class="view-mode">
+            <button class="active" id="gridViewBtn" onclick="setViewMode('grid')">Grid</button>
+            <button id="listViewBtn" onclick="setViewMode('list')">List</button>
+            <button id="simpleViewBtn" onclick="setViewMode('simple')">Simple</button>
         </div>
     </div>
 
-    <script>
-        const TMDB_API_KEY = 'c60e2100665d52f3d930770371eab663';
-        const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
-        const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
-        const STORAGE_KEY_MOVIES = 'movieWatchlistUltimate';
-        const STORAGE_KEY_SHOWS = 'showsWatchlistUltimate';
+    <div id="watchlist" class="watchlist-grid"></div>
+    <div id="emptyState" class="empty-state" style="display: none;">
+        <div class="empty-state-icon" id="emptyIcon">🎬</div>
+        <h3 id="emptyTitle">Your watchlist is empty</h3>
+        <p id="emptyText">Search above to start building your collection!</p>
+    </div>
+</div>
 
-        let currentMode = 'movies'; // 'movies' or 'shows'
-        let movies = JSON.parse(localStorage.getItem(STORAGE_KEY_MOVIES)) || [];
-        let shows = JSON.parse(localStorage.getItem(STORAGE_KEY_SHOWS)) || [];
-        let selectedItems = new Set();
-        let bulkMode = false;
-        let currentViewMode = 'grid';
-        let movieGenres = {};
-        let showGenres = {};
+<!-- Bulk Actions Bar -->
+<div class="bulk-actions-bar" id="bulkActionsBar">
+    <span class="selected-count"><span id="selectedCount">0</span> selected</span>
+    <button class="btn-small btn-success" onclick="addSelectedToWatchlist()">Add to Watchlist</button>
+    <button class="btn-small btn-secondary" onclick="clearSelection()">Clear</button>
+</div>
 
-        document.addEventListener('DOMContentLoaded', async () => {
-            await loadGenres();
-            updateStats();
-            renderWatchlist();
-            updateGenreFilters();
-            
-            document.getElementById('searchInput').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') search();
-            });
+<!-- Details Modal -->
+<div id="movieModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle"></h2>
+            <button class="close-modal" onclick="closeModal()" aria-label="Close modal">×</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+    </div>
+</div>
+
+<!-- Back to Top Button -->
+<div class="back-to-top" id="backToTop" onclick="scrollToTop()" role="button" tabindex="0" aria-label="Scroll to top"></div>
+
+<script>
+    const TMDB_API_KEY = 'c60e2100665d52f3d930770371eab663';
+    const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
+    const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
+    const STORAGE_KEY_MOVIES = 'movieWatchlistUltimate';
+    const STORAGE_KEY_SHOWS = 'showsWatchlistUltimate';
+
+    let currentMode = 'movies'; // 'movies' or 'shows'
+    let movies = JSON.parse(localStorage.getItem(STORAGE_KEY_MOVIES)) || [];
+    let shows = JSON.parse(localStorage.getItem(STORAGE_KEY_SHOWS)) || [];
+    let selectedItems = new Set();
+    let bulkMode = false;
+    let currentViewMode = 'grid';
+    let movieGenres = {};
+    let showGenres = {};
+    let currentSearchController = null; // For cancelling searches
+    let importCancelled = false; // For cancelling imports
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        await loadGenres();
+        updateStats();
+        renderWatchlist();
+        updateGenreFilters();
+        
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') search();
         });
 
-        function switchToMovies() {
-            currentMode = 'movies';
-            document.body.classList.remove('shows-mode');
-            document.getElementById('moviesBtn').classList.add('active');
-            document.getElementById('showsBtn').classList.remove('active');
-            document.getElementById('mainTitle').textContent = '🎬 CineTrack Ultimate';
-            document.getElementById('searchTitle').textContent = '🔍 Discover Movies';
-            document.getElementById('searchInput').placeholder = 'Search for movies...';
-            document.getElementById('watchlistTitle').innerHTML = 'My Watchlist (<span id="filteredCount">0</span>)';
-            document.getElementById('emptyIcon').textContent = '🎬';
-            document.getElementById('emptyTitle').textContent = 'Your movie watchlist is empty';
-            document.getElementById('emptyText').textContent = 'Search above to start building your collection!';
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Esc to close modal
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('movieModal');
+                if (modal.classList.contains('active')) {
+                    closeModal();
+                    e.preventDefault();
+                }
+            }
             
-            clearSearch();
-            clearSelection();
-            updateStats();
-            renderWatchlist();
-            updateGenreFilters();
-        }
+            // / to focus search
+            if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+                document.getElementById('searchInput').focus();
+                e.preventDefault();
+            }
+        });
 
-        function switchToShows() {
-            currentMode = 'shows';
-            document.body.classList.add('shows-mode');
-            document.getElementById('moviesBtn').classList.remove('active');
-            document.getElementById('showsBtn').classList.add('active');
-            document.getElementById('mainTitle').textContent = '📺 CineTrack Ultimate';
-            document.getElementById('searchTitle').textContent = '🔍 Discover TV Shows';
-            document.getElementById('searchInput').placeholder = 'Search for TV shows...';
-            document.getElementById('watchlistTitle').innerHTML = 'My TV Shows (<span id="filteredCount">0</span>)';
-            document.getElementById('emptyIcon').textContent = '📺';
-            document.getElementById('emptyTitle').textContent = 'Your TV shows list is empty';
-            document.getElementById('emptyText').textContent = 'Search above to start building your collection!';
-            
-            clearSearch();
-            clearSelection();
-            updateStats();
-            renderWatchlist();
-            updateGenreFilters();
-        }
+        // Event delegation for watchlist items
+        document.getElementById('watchlist').addEventListener('click', handleWatchlistClick);
 
-        function getCurrentList() {
-            return currentMode === 'movies' ? movies : shows;
-        }
-
-        function setCurrentList(list) {
-            if (currentMode === 'movies') {
-                movies = list;
-                localStorage.setItem(STORAGE_KEY_MOVIES, JSON.stringify(movies));
+        // Back to top button visibility
+        window.addEventListener('scroll', () => {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
             } else {
-                shows = list;
-                localStorage.setItem(STORAGE_KEY_SHOWS, JSON.stringify(shows));
+                backToTop.classList.remove('visible');
             }
-        }
+        });
+    });
 
-        async function loadGenres() {
-            try {
-                // Load movie genres
-                const movieResponse = await fetch(`${TMDB_BASE_URL}/genre/movie/list?api_key=${TMDB_API_KEY}&language=en-US`);
-                if (movieResponse.ok) {
-                    const movieData = await movieResponse.json();
-                    movieGenres = {};
-                    movieData.genres.forEach(g => movieGenres[g.id] = g.name);
-                }
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
 
-                // Load TV genres
-                const tvResponse = await fetch(`${TMDB_BASE_URL}/genre/tv/list?api_key=${TMDB_API_KEY}&language=en-US`);
-                if (tvResponse.ok) {
-                    const tvData = await tvResponse.json();
-                    showGenres = {};
-                    tvData.genres.forEach(g => showGenres[g.id] = g.name);
-                }
-
-                updateGenreDropdown();
-            } catch (error) {
-                console.error('Failed to load genres:', error);
-            }
-        }
-
-        function updateGenreDropdown() {
-            const genreSelect = document.getElementById('genreFilter');
-            genreSelect.innerHTML = '<option value="">All Genres</option>';
-            
-            const genres = currentMode === 'movies' ? movieGenres : showGenres;
-            Object.entries(genres).forEach(([id, name]) => {
-                const option = document.createElement('option');
-                option.value = id;
-                option.textContent = name;
-                genreSelect.appendChild(option);
+    // Fetch with timeout helper
+    async function fetchWithTimeout(url, options = {}, timeout = 10000) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeout);
+        
+        try {
+            const response = await fetch(url, {
+                ...options,
+                signal: controller.signal
             });
-        }
-
-        function toggleBulkMode() {
-            bulkMode = !bulkMode;
-            document.getElementById('bulkToggle').classList.toggle('active');
-            clearSelection();
-        }
-
-        async function search() {
-            const query = document.getElementById('searchInput').value.trim();
-            const genreId = document.getElementById('genreFilter').value;
-            const yearFrom = document.getElementById('yearFrom').value;
-            const yearTo = document.getElementById('yearTo').value;
-            const minRating = document.getElementById('minRating').value;
-            
-            const resultsDiv = document.getElementById('searchResults');
-            const errorDiv = document.getElementById('searchError');
-            
-            if (!query && !genreId && !yearFrom && !yearTo && !minRating) {
-                resultsDiv.innerHTML = '';
-                return;
+            clearTimeout(timeoutId);
+            return response;
+        } catch (error) {
+            clearTimeout(timeoutId);
+            if (error.name === 'AbortError') {
+                throw new Error('Request timeout');
             }
+            throw error;
+        }
+    }
 
-            errorDiv.style.display = 'none';
-            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Searching...</div>';
+    // Event delegation handler for watchlist
+    function handleWatchlistClick(e) {
+        const target = e.target;
+        
+        // Handle poster clicks
+        if (target.classList.contains('watchlist-poster') || target.closest('.simple-list-item')) {
+            const item = target.closest('[data-movie-id]');
+            if (item) {
+                const id = parseInt(item.dataset.movieId);
+                showDetails(id);
+            }
+            return;
+        }
 
-            try {
-                const mediaType = currentMode === 'movies' ? 'movie' : 'tv';
-                let url;
+        // Handle star ratings
+        if (target.classList.contains('star')) {
+            const item = target.closest('[data-movie-id]');
+            const starIndex = Array.from(target.parentElement.children).indexOf(target) + 1;
+            if (item && starIndex) {
+                const id = parseInt(item.dataset.movieId);
+                setRating(id, starIndex);
+            }
+            return;
+        }
+
+        // Handle action buttons
+        if (target.dataset.action) {
+            const item = target.closest('[data-movie-id]');
+            if (item) {
+                const id = parseInt(item.dataset.movieId);
+                const action = target.dataset.action;
                 
-                if (query) {
-                    url = `${TMDB_BASE_URL}/search/${mediaType}?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(query)}&language=en-US&page=1`;
-                } else {
-                    url = `${TMDB_BASE_URL}/discover/${mediaType}?api_key=${TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1`;
-                    if (genreId) url += `&with_genres=${genreId}`;
-                    if (yearFrom) url += currentMode === 'movies' ? `&primary_release_date.gte=${yearFrom}-01-01` : `&first_air_date.gte=${yearFrom}-01-01`;
-                    if (yearTo) url += currentMode === 'movies' ? `&primary_release_date.lte=${yearTo}-12-31` : `&first_air_date.lte=${yearTo}-12-31`;
-                    if (minRating) url += `&vote_average.gte=${minRating}`;
-                }
-                
-                const response = await fetch(url);
-                if (!response.ok) throw new Error('Search failed');
-                
-                const data = await response.json();
-                displaySearchResults(data.results);
-            } catch (error) {
-                errorDiv.textContent = '❌ Search failed. Please check your connection.';
-                errorDiv.style.display = 'flex';
-                resultsDiv.innerHTML = '';
+                if (action === 'edit') editItem(id);
+                else if (action === 'status') changeStatus(id);
+                else if (action === 'remove') removeItem(id);
             }
         }
+    }
 
-        function displaySearchResults(results) {
-            const resultsDiv = document.getElementById('searchResults');
-            
-            if (!results || results.length === 0) {
-                resultsDiv.innerHTML = '<div class="empty-state"><p>No results found</p></div>';
-                return;
+    function switchToMovies() {
+        currentMode = 'movies';
+        document.body.classList.remove('shows-mode');
+        document.getElementById('moviesBtn').classList.add('active');
+        document.getElementById('showsBtn').classList.remove('active');
+        document.getElementById('mainTitle').textContent = '🎬 CineTrack Ultimate';
+        document.getElementById('searchTitle').textContent = '🔍 Discover Movies';
+        document.getElementById('searchInput').placeholder = 'Search for movies...';
+        document.getElementById('watchlistTitle').innerHTML = 'My Watchlist (<span id="filteredCount">0</span>)';
+        document.getElementById('emptyIcon').textContent = '🎬';
+        document.getElementById('emptyTitle').textContent = 'Your movie watchlist is empty';
+        document.getElementById('emptyText').textContent = 'Search above to start building your collection!';
+        
+        clearSearch();
+        clearSelection();
+        updateGenreDropdown(); // FIX: Update genre dropdown
+        updateStats();
+        renderWatchlist();
+        updateGenreFilters();
+    }
+
+    function switchToShows() {
+        currentMode = 'shows';
+        document.body.classList.add('shows-mode');
+        document.getElementById('moviesBtn').classList.remove('active');
+        document.getElementById('showsBtn').classList.add('active');
+        document.getElementById('mainTitle').textContent = '📺 CineTrack Ultimate';
+        document.getElementById('searchTitle').textContent = '🔍 Discover TV Shows';
+        document.getElementById('searchInput').placeholder = 'Search for TV shows...';
+        document.getElementById('watchlistTitle').innerHTML = 'My TV Shows (<span id="filteredCount">0</span>)';
+        document.getElementById('emptyIcon').textContent = '📺';
+        document.getElementById('emptyTitle').textContent = 'Your TV shows list is empty';
+        document.getElementById('emptyText').textContent = 'Search above to start building your collection!';
+        
+        clearSearch();
+        clearSelection();
+        updateGenreDropdown(); // FIX: Update genre dropdown
+        updateStats();
+        renderWatchlist();
+        updateGenreFilters();
+    }
+
+    function getCurrentList() {
+        return currentMode === 'movies' ? movies : shows;
+    }
+
+    function setCurrentList(list) {
+        if (currentMode === 'movies') {
+            movies = list;
+            safeLocalStorageSet(STORAGE_KEY_MOVIES, movies);
+        } else {
+            shows = list;
+            safeLocalStorageSet(STORAGE_KEY_SHOWS, shows);
+        }
+    }
+
+    // Safe localStorage setter with quota handling
+    function safeLocalStorageSet(key, value) {
+        try {
+            localStorage.setItem(key, JSON.stringify(value));
+            return true;
+        } catch (e) {
+            if (e.name === 'QuotaExceededError' || e.code === 22) {
+                alert('⚠️ Storage limit reached!\n\nYour watchlist is too large for browser storage.\n\nPlease:\n1. Export your data (CSV)\n2. Remove some old items\n3. Consider splitting into multiple browsers');
+                return false;
+            }
+            console.error('LocalStorage error:', e);
+            alert('❌ Failed to save data. Please export your watchlist as backup!');
+            return false;
+        }
+    }
+
+    async function loadGenres() {
+        try {
+            // Load movie genres
+            const movieResponse = await fetch(`${TMDB_BASE_URL}/genre/movie/list?api_key=${TMDB_API_KEY}&language=en-US`);
+            if (movieResponse.ok) {
+                const movieData = await movieResponse.json();
+                movieGenres = {};
+                movieData.genres.forEach(g => movieGenres[g.id] = g.name);
             }
 
-            resultsDiv.innerHTML = results.slice(0, 30).map(item => {
-                const title = currentMode === 'movies' ? item.title : item.name;
-                const date = currentMode === 'movies' ? item.release_date : item.first_air_date;
-                const year = date ? date.split('-')[0] : 'N/A';
-                
-                return `
-                    <div class="movie-card ${selectedItems.has(item.id) ? 'selected' : ''}" 
-                         onclick="${bulkMode ? `toggleSelection(${item.id}, event)` : `showDetails(${item.id})`}">
-                        <img src="${item.poster_path ? TMDB_IMAGE_BASE + item.poster_path : 'https://via.placeholder.com/500x750?text=No+Poster'}" 
-                             alt="${title}"
-                             class="movie-poster"
-                             loading="lazy">
-                        <div class="movie-info">
-                            <div class="movie-title">${title}</div>
-                            <div class="movie-meta">
-                                <span>${year}</span>
-                                ${item.vote_average ? `<span class="movie-rating">${item.vote_average.toFixed(1)}</span>` : ''}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function toggleSelection(id, event) {
-            event.stopPropagation();
-            
-            if (selectedItems.has(id)) {
-                selectedItems.delete(id);
-            } else {
-                selectedItems.add(id);
+            // Load TV genres
+            const tvResponse = await fetch(`${TMDB_BASE_URL}/genre/tv/list?api_key=${TMDB_API_KEY}&language=en-US`);
+            if (tvResponse.ok) {
+                const tvData = await tvResponse.json();
+                showGenres = {};
+                tvData.genres.forEach(g => showGenres[g.id] = g.name);
             }
-            
-            const cards = document.querySelectorAll('.movie-card');
-            cards.forEach(card => {
-                const cardOnclick = card.getAttribute('onclick');
-                if (cardOnclick && cardOnclick.includes(id.toString())) {
-                    card.classList.toggle('selected', selectedItems.has(id));
-                }
-            });
 
-            document.getElementById('selectedCount').textContent = selectedItems.size;
-            document.getElementById('bulkActionsBar').classList.toggle('active', selectedItems.size > 0);
+            updateGenreDropdown();
+        } catch (error) {
+            console.error('Failed to load genres:', error);
+        }
+    }
+
+    function updateGenreDropdown() {
+        const genreSelect = document.getElementById('genreFilter');
+        genreSelect.innerHTML = '<option value="">All Genres</option>';
+        
+        const genres = currentMode === 'movies' ? movieGenres : showGenres;
+        Object.entries(genres).forEach(([id, name]) => {
+            const option = document.createElement('option');
+            option.value = id;
+            option.textContent = name;
+            genreSelect.appendChild(option);
+        });
+    }
+
+    function toggleBulkMode() {
+        bulkMode = !bulkMode;
+        document.getElementById('bulkToggle').classList.toggle('active');
+        clearSelection();
+    }
+
+    async function search() {
+        // Cancel previous search if still running
+        if (currentSearchController) {
+            currentSearchController.abort();
+        }
+        currentSearchController = new AbortController();
+
+        const query = document.getElementById('searchInput').value.trim();
+        const genreId = document.getElementById('genreFilter').value;
+        const yearFrom = document.getElementById('yearFrom').value;
+        const yearTo = document.getElementById('yearTo').value;
+        const minRating = document.getElementById('minRating').value;
+        
+        const resultsDiv = document.getElementById('searchResults');
+        const errorDiv = document.getElementById('searchError');
+        
+        if (!query && !genreId && !yearFrom && !yearTo && !minRating) {
+            resultsDiv.innerHTML = '';
+            return;
         }
 
-        async function addSelectedToWatchlist() {
-            if (selectedItems.size === 0) return;
+        errorDiv.style.display = 'none';
+        resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Searching...</div>';
 
-            const button = event.target;
-            button.disabled = true;
-            button.textContent = 'Adding...';
-
+        try {
             const mediaType = currentMode === 'movies' ? 'movie' : 'tv';
-            let added = 0;
-
-            for (const id of selectedItems) {
-                try {
-                    const response = await fetch(`${TMDB_BASE_URL}/${mediaType}/${id}?api_key=${TMDB_API_KEY}&language=en-US`);
-                    const item = await response.json();
-                    
-                    const list = getCurrentList();
-                    if (!list.some(m => m.id === item.id)) {
-                        addToList(item);
-                        added++;
-                    }
-                } catch (error) {
-                    console.error(`Failed to add ${id}:`, error);
-                }
-            }
-
-            updateStats();
-            renderWatchlist();
-            updateGenreFilters();
-            clearSelection();
+            let url;
             
-            button.disabled = false;
-            button.textContent = 'Add to Watchlist';
-            
-            if (added > 0) {
-                alert(`✅ Added ${added} ${currentMode === 'movies' ? 'movie' : 'show'}(s)!`);
+            if (query) {
+                url = `${TMDB_BASE_URL}/search/${mediaType}?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(query)}&language=en-US&page=1`;
+            } else {
+                url = `${TMDB_BASE_URL}/discover/${mediaType}?api_key=${TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1`;
+                if (genreId) url += `&with_genres=${genreId}`;
+                if (yearFrom) url += currentMode === 'movies' ? `&primary_release_date.gte=${yearFrom}-01-01` : `&first_air_date.gte=${yearFrom}-01-01`;
+                if (yearTo) url += currentMode === 'movies' ? `&primary_release_date.lte=${yearTo}-12-31` : `&first_air_date.lte=${yearTo}-12-31`;
+                if (minRating) url += `&vote_average.gte=${minRating}`;
             }
+            
+            const response = await fetchWithTimeout(url, { signal: currentSearchController.signal });
+            
+            if (!response.ok) throw new Error('Search failed');
+            
+            const data = await response.json();
+            displaySearchResults(data.results);
+        } catch (error) {
+            if (error.name === 'AbortError') {
+                // Search was cancelled, ignore
+                return;
+            }
+            errorDiv.textContent = error.message === 'Request timeout' 
+                ? '⏱️ Search timed out. Please try again.'
+                : '❌ Search failed. Please check your connection.';
+            errorDiv.style.display = 'flex';
+            resultsDiv.innerHTML = '';
+        } finally {
+            currentSearchController = null;
+        }
+    }
+
+    function displaySearchResults(results) {
+        const resultsDiv = document.getElementById('searchResults');
+        
+        if (!results || results.length === 0) {
+            resultsDiv.innerHTML = '<div class="empty-state"><p>No results found</p></div>';
+            return;
         }
 
-        function addToList(item) {
-            const list = getCurrentList();
+        resultsDiv.innerHTML = results.slice(0, 30).map(item => {
             const title = currentMode === 'movies' ? item.title : item.name;
             const date = currentMode === 'movies' ? item.release_date : item.first_air_date;
             const year = date ? date.split('-')[0] : 'N/A';
             
-            const listItem = {
-                id: item.id,
-                title: title,
-                year: year,
-                poster: item.poster_path ? TMDB_IMAGE_BASE + item.poster_path : null,
-                status: 'to-watch',
-                rating: 0,
-                notes: '',
-                tags: [],
-                addedDate: new Date().toISOString(),
-                watchedDate: null,
-                genres: item.genres?.map(g => g.name) || [],
-                overview: item.overview || '',
-                voteAverage: item.vote_average || 0
-            };
-
-            if (currentMode === 'shows') {
-                listItem.seasons = item.number_of_seasons || 0;
-                listItem.episodes = item.number_of_episodes || 0;
-            } else {
-                listItem.runtime = item.runtime || null;
-            }
-
-            list.unshift(listItem);
-            setCurrentList(list);
-        }
-
-        function clearSelection() {
-            selectedItems.clear();
-            document.querySelectorAll('.movie-card').forEach(card => card.classList.remove('selected'));
-            document.getElementById('selectedCount').textContent = '0';
-            document.getElementById('bulkActionsBar').classList.remove('active');
-        }
-
-        function clearSearch() {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('genreFilter').value = '';
-            document.getElementById('yearFrom').value = '';
-            document.getElementById('yearTo').value = '';
-            document.getElementById('minRating').value = '';
-            document.getElementById('searchResults').innerHTML = '';
-        }
-
-        async function showDetails(id) {
-            const modal = document.getElementById('movieModal');
-            const modalBody = document.getElementById('modalBody');
-            
-            modal.classList.add('active');
-            modalBody.innerHTML = '<div class="loading"><div class="spinner"></div>Loading details...</div>';
-
-            try {
-                const mediaType = currentMode === 'movies' ? 'movie' : 'tv';
-                const response = await fetch(
-                    `${TMDB_BASE_URL}/${mediaType}/${id}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=credits,videos,similar`
-                );
-                
-                if (!response.ok) throw new Error('Failed to fetch details');
-                
-                const item = await response.json();
-                displayDetails(item);
-            } catch (error) {
-                modalBody.innerHTML = '<div class="error">❌ Failed to load details</div>';
-            }
-        }
-
-        function displayDetails(item) {
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-            const list = getCurrentList();
-            const isInList = list.some(m => m.id === item.id);
-            
-            const title = currentMode === 'movies' ? item.title : item.name;
-            const date = currentMode === 'movies' ? item.release_date : item.first_air_date;
-            
-            modalTitle.textContent = title;
-
-            const creator = currentMode === 'movies' 
-                ? item.credits?.crew?.find(person => person.job === 'Director')
-                : item.created_by?.[0];
-            const cast = item.credits?.cast?.slice(0, 6) || [];
-            const trailer = item.videos?.results?.find(v => v.type === 'Trailer' && v.site === 'YouTube');
-            const similar = item.similar?.results?.slice(0, 6) || [];
-
-            modalBody.innerHTML = `
-                <div class="movie-details-grid">
-                    <div>
-                        <img src="${item.poster_path ? TMDB_IMAGE_BASE + item.poster_path : 'https://via.placeholder.com/500x750?text=No+Poster'}" 
-                             alt="${title}"
-                             class="movie-details-poster">
-                    </div>
-                    <div class="movie-details-info">
-                        <p><span class="label">${currentMode === 'movies' ? 'Release' : 'First Air'}:</span>${date || 'N/A'}</p>
-                        ${currentMode === 'movies' && item.runtime ? `<p><span class="label">Runtime:</span>${item.runtime} min</p>` : ''}
-                        ${currentMode === 'shows' ? `<p><span class="label">Seasons:</span>${item.number_of_seasons || 0}</p>` : ''}
-                        ${currentMode === 'shows' ? `<p><span class="label">Episodes:</span>${item.number_of_episodes || 0}</p>` : ''}
-                        ${currentMode === 'shows' && item.status ? `<p><span class="label">Status:</span>${item.status}</p>` : ''}
-                        <p><span class="label">Rating:</span>⭐ ${item.vote_average ? item.vote_average.toFixed(1) : 'N/A'}/10 (${item.vote_count || 0} votes)</p>
-                        ${creator ? `<p><span class="label">${currentMode === 'movies' ? 'Director' : 'Creator'}:</span>${creator.name}</p>` : ''}
-                        <p><span class="label">Genres:</span>${item.genres?.map(g => g.name).join(', ') || 'N/A'}</p>
-                        
-                        <div style="margin: 20px 0;">
-                            <span class="label">Overview:</span>
-                            <p style="margin-top: 10px; line-height: 1.6;">${item.overview || 'No overview available'}</p>
+            return `
+                <div class="movie-card ${selectedItems.has(item.id) ? 'selected' : ''}" 
+                     onclick="${bulkMode ? `toggleSelection(${item.id}, event)` : `showDetails(${item.id})`}">
+                    <img src="${item.poster_path ? TMDB_IMAGE_BASE + item.poster_path : 'https://via.placeholder.com/500x750?text=No+Poster'}" 
+                         alt="${title}"
+                         class="movie-poster"
+                         loading="lazy">
+                    <div class="movie-info">
+                        <div class="movie-title">${title}</div>
+                        <div class="movie-meta">
+                            <span>${year}</span>
+                            ${item.vote_average ? `<span class="movie-rating">${item.vote_average.toFixed(1)}</span>` : ''}
                         </div>
-
-                        ${trailer ? `
-                            <div style="margin: 20px 0;">
-                                <iframe width="100%" height="250" 
-                                    src="https://www.youtube.com/embed/${trailer.key}" 
-                                    frameborder="0" allowfullscreen
-                                    style="border-radius: 12px;"></iframe>
-                            </div>
-                        ` : ''}
-                        
-                        ${isInList ? 
-                            '<p style="color: var(--success); font-weight: 600; margin-top: 20px;">✓ Already in your list</p>' :
-                            `<button onclick='addFromModal(${JSON.stringify(item).replace(/'/g, '&#39;')})' style="margin-top: 20px;">Add to Watchlist</button>`
-                        }
                     </div>
                 </div>
+            `;
+        }).join('');
+    }
 
-                ${cast.length > 0 ? `
-                    <div style="margin-top: 30px;">
-                        <h3 style="margin-bottom: 15px;">Cast</h3>
-                        <div class="cast-grid">
-                            ${cast.map(actor => `
-                                <div class="cast-member">
-                                    <img src="${actor.profile_path ? TMDB_IMAGE_BASE + actor.profile_path : 'https://via.placeholder.com/200x300?text=No+Photo'}" 
-                                         class="cast-photo"
-                                         loading="lazy">
-                                    <div class="cast-name">${actor.name}</div>
-                                    <div class="cast-character">${actor.character}</div>
-                                </div>
-                            `).join('')}
-                        </div>
+    function toggleSelection(id, event) {
+        event.stopPropagation();
+        
+        if (selectedItems.has(id)) {
+            selectedItems.delete(id);
+        } else {
+            selectedItems.add(id);
+        }
+        
+        const cards = document.querySelectorAll('.movie-card');
+        cards.forEach(card => {
+            const cardOnclick = card.getAttribute('onclick');
+            if (cardOnclick && cardOnclick.includes(id.toString())) {
+                card.classList.toggle('selected', selectedItems.has(id));
+            }
+        });
+
+        document.getElementById('selectedCount').textContent = selectedItems.size;
+        document.getElementById('bulkActionsBar').classList.toggle('active', selectedItems.size > 0);
+    }
+
+    async function addSelectedToWatchlist() {
+        if (selectedItems.size === 0) return;
+
+        const button = event.target;
+        button.disabled = true;
+        button.textContent = 'Adding...';
+
+        const mediaType = currentMode === 'movies' ? 'movie' : 'tv';
+        let added = 0;
+
+        for (const id of selectedItems) {
+            try {
+                const response = await fetch(`${TMDB_BASE_URL}/${mediaType}/${id}?api_key=${TMDB_API_KEY}&language=en-US`);
+                const item = await response.json();
+                
+                const list = getCurrentList();
+                if (!list.some(m => m.id === item.id)) {
+                    addToList(item);
+                    added++;
+                }
+            } catch (error) {
+                console.error(`Failed to add ${id}:`, error);
+            }
+        }
+
+        updateStats();
+        renderWatchlist();
+        updateGenreFilters();
+        clearSelection();
+        
+        button.disabled = false;
+        button.textContent = 'Add to Watchlist';
+        
+        if (added > 0) {
+            alert(`✅ Added ${added} ${currentMode === 'movies' ? 'movie' : 'show'}(s)!`);
+        }
+    }
+
+    function addToList(item) {
+        const list = getCurrentList();
+        const title = currentMode === 'movies' ? item.title : item.name;
+        const date = currentMode === 'movies' ? item.release_date : item.first_air_date;
+        const year = date ? date.split('-')[0] : 'N/A';
+        
+        const listItem = {
+            id: item.id,
+            title: title,
+            year: year,
+            poster: item.poster_path ? TMDB_IMAGE_BASE + item.poster_path : null,
+            status: 'to-watch',
+            rating: 0,
+            notes: '',
+            tags: [],
+            addedDate: new Date().toISOString(),
+            watchedDate: null,
+            genres: item.genres?.map(g => g.name) || [],
+            overview: item.overview || '',
+            voteAverage: item.vote_average || 0
+        };
+
+        if (currentMode === 'shows') {
+            listItem.seasons = item.number_of_seasons || 0;
+            listItem.episodes = item.number_of_episodes || 0;
+        } else {
+            listItem.runtime = item.runtime || null;
+        }
+
+        list.unshift(listItem);
+        setCurrentList(list);
+    }
+
+    function clearSelection() {
+        selectedItems.clear();
+        document.querySelectorAll('.movie-card').forEach(card => card.classList.remove('selected'));
+        document.getElementById('selectedCount').textContent = '0';
+        document.getElementById('bulkActionsBar').classList.remove('active');
+    }
+
+    function clearSearch() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('genreFilter').value = '';
+        document.getElementById('yearFrom').value = '';
+        document.getElementById('yearTo').value = '';
+        document.getElementById('minRating').value = '';
+        document.getElementById('searchResults').innerHTML = '';
+    }
+
+    async function showDetails(id) {
+        const modal = document.getElementById('movieModal');
+        const modalBody = document.getElementById('modalBody');
+        
+        modal.classList.add('active');
+        modalBody.innerHTML = '<div class="loading"><div class="spinner"></div>Loading details...</div>';
+
+        try {
+            const mediaType = currentMode === 'movies' ? 'movie' : 'tv';
+            const response = await fetch(
+                `${TMDB_BASE_URL}/${mediaType}/${id}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=credits,videos,similar`
+            );
+            
+            if (!response.ok) throw new Error('Failed to fetch details');
+            
+            const item = await response.json();
+            displayDetails(item);
+        } catch (error) {
+            modalBody.innerHTML = '<div class="error">❌ Failed to load details</div>';
+        }
+    }
+
+    function displayDetails(item) {
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const list = getCurrentList();
+        const isInList = list.some(m => m.id === item.id);
+        
+        const title = currentMode === 'movies' ? item.title : item.name;
+        const date = currentMode === 'movies' ? item.release_date : item.first_air_date;
+        
+        modalTitle.textContent = title;
+
+        const creator = currentMode === 'movies' 
+            ? item.credits?.crew?.find(person => person.job === 'Director')
+            : item.created_by?.[0];
+        const cast = item.credits?.cast?.slice(0, 6) || [];
+        const trailer = item.videos?.results?.find(v => v.type === 'Trailer' && v.site === 'YouTube');
+        const similar = item.similar?.results?.slice(0, 6) || [];
+
+        modalBody.innerHTML = `
+            <div class="movie-details-grid">
+                <div>
+                    <img src="${item.poster_path ? TMDB_IMAGE_BASE + item.poster_path : 'https://via.placeholder.com/500x750?text=No+Poster'}" 
+                         alt="${title}"
+                         class="movie-details-poster">
+                </div>
+                <div class="movie-details-info">
+                    <p><span class="label">${currentMode === 'movies' ? 'Release' : 'First Air'}:</span>${date || 'N/A'}</p>
+                    ${currentMode === 'movies' && item.runtime ? `<p><span class="label">Runtime:</span>${item.runtime} min</p>` : ''}
+                    ${currentMode === 'shows' ? `<p><span class="label">Seasons:</span>${item.number_of_seasons || 0}</p>` : ''}
+                    ${currentMode === 'shows' ? `<p><span class="label">Episodes:</span>${item.number_of_episodes || 0}</p>` : ''}
+                    ${currentMode === 'shows' && item.status ? `<p><span class="label">Status:</span>${item.status}</p>` : ''}
+                    <p><span class="label">Rating:</span>⭐ ${item.vote_average ? item.vote_average.toFixed(1) : 'N/A'}/10 (${item.vote_count || 0} votes)</p>
+                    ${creator ? `<p><span class="label">${currentMode === 'movies' ? 'Director' : 'Creator'}:</span>${creator.name}</p>` : ''}
+                    <p><span class="label">Genres:</span>${item.genres?.map(g => g.name).join(', ') || 'N/A'}</p>
+                    
+                    <div style="margin: 20px 0;">
+                        <span class="label">Overview:</span>
+                        <p style="margin-top: 10px; line-height: 1.6;">${item.overview || 'No overview available'}</p>
                     </div>
-                ` : ''}
 
-                ${similar.length > 0 ? `
-                    <div style="margin-top: 30px;">
-                        <h3 style="margin-bottom: 15px;">Similar ${currentMode === 'movies' ? 'Movies' : 'Shows'}</h3>
-                        <div class="search-results" style="max-height: none;">
-                            ${similar.map(m => {
-                                const simTitle = currentMode === 'movies' ? m.title : m.name;
-                                const simDate = currentMode === 'movies' ? m.release_date : m.first_air_date;
-                                const simYear = simDate ? simDate.split('-')[0] : 'N/A';
-                                return `
-                                    <div class="movie-card" onclick="showDetails(${m.id})">
-                                        <img src="${m.poster_path ? TMDB_IMAGE_BASE + m.poster_path : 'https://via.placeholder.com/500x750?text=No+Poster'}" 
-                                             alt="${simTitle}" class="movie-poster" loading="lazy">
-                                        <div class="movie-info">
-                                            <div class="movie-title">${simTitle}</div>
-                                            <div class="movie-meta">
-                                                <span>${simYear}</span>
-                                                ${m.vote_average ? `<span class="movie-rating">${m.vote_average.toFixed(1)}</span>` : ''}
-                                            </div>
+                    ${trailer ? `
+                        <div style="margin: 20px 0;">
+                            <iframe width="100%" height="250" 
+                                src="https://www.youtube.com/embed/${trailer.key}" 
+                                frameborder="0" allowfullscreen
+                                style="border-radius: 12px;"></iframe>
+                        </div>
+                    ` : ''}
+                    
+                    ${isInList ? 
+                        '<p style="color: var(--success); font-weight: 600; margin-top: 20px;">✓ Already in your list</p>' :
+                        `<button onclick='addFromModal(${JSON.stringify(item).replace(/'/g, '&#39;')})' style="margin-top: 20px;">Add to Watchlist</button>`
+                    }
+                </div>
+            </div>
+
+            ${cast.length > 0 ? `
+                <div style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px;">Cast</h3>
+                    <div class="cast-grid">
+                        ${cast.map(actor => `
+                            <div class="cast-member">
+                                <img src="${actor.profile_path ? TMDB_IMAGE_BASE + actor.profile_path : 'https://via.placeholder.com/200x300?text=No+Photo'}" 
+                                     class="cast-photo"
+                                     loading="lazy">
+                                <div class="cast-name">${actor.name}</div>
+                                <div class="cast-character">${actor.character}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : ''}
+
+            ${similar.length > 0 ? `
+                <div style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px;">Similar ${currentMode === 'movies' ? 'Movies' : 'Shows'}</h3>
+                    <div class="search-results" style="max-height: none;">
+                        ${similar.map(m => {
+                            const simTitle = currentMode === 'movies' ? m.title : m.name;
+                            const simDate = currentMode === 'movies' ? m.release_date : m.first_air_date;
+                            const simYear = simDate ? simDate.split('-')[0] : 'N/A';
+                            return `
+                                <div class="movie-card" onclick="showDetails(${m.id})">
+                                    <img src="${m.poster_path ? TMDB_IMAGE_BASE + m.poster_path : 'https://via.placeholder.com/500x750?text=No+Poster'}" 
+                                         alt="${simTitle}" class="movie-poster" loading="lazy">
+                                    <div class="movie-info">
+                                        <div class="movie-title">${simTitle}</div>
+                                        <div class="movie-meta">
+                                            <span>${simYear}</span>
+                                            ${m.vote_average ? `<span class="movie-rating">${m.vote_average.toFixed(1)}</span>` : ''}
                                         </div>
                                     </div>
-                                `;
-                            }).join('')}
-                        </div>
+                                </div>
+                            `;
+                        }).join('')}
                     </div>
-                ` : ''}
-            `;
+                </div>
+            ` : ''}
+        `;
+    }
+
+    function addFromModal(item) {
+        const list = getCurrentList();
+        if (list.some(m => m.id === item.id)) {
+            alert('Already in your list!');
+            return;
         }
 
-        function addFromModal(item) {
-            const list = getCurrentList();
-            if (list.some(m => m.id === item.id)) {
-                alert('Already in your list!');
-                return;
-            }
+        addToList(item);
+        updateStats();
+        renderWatchlist();
+        updateGenreFilters();
+        closeModal();
+        
+        const title = currentMode === 'movies' ? item.title : item.name;
+        alert(`✅ "${title}" added!`);
+    }
 
-            addToList(item);
-            updateStats();
-            renderWatchlist();
-            updateGenreFilters();
-            closeModal();
-            
-            const title = currentMode === 'movies' ? item.title : item.name;
-            alert(`✅ "${title}" added!`);
+    function renderWatchlist() {
+        const watchlistDiv = document.getElementById('watchlist');
+        const emptyState = document.getElementById('emptyState');
+        const statusFilter = document.getElementById('statusFilter').value;
+        const sortBy = document.getElementById('sortBy').value;
+        const genreFilter = document.getElementById('myGenreFilter').value;
+
+        const list = getCurrentList();
+        let filtered = list.filter(item => {
+            if (statusFilter !== 'all' && item.status !== statusFilter) return false;
+            if (genreFilter && !item.genres.includes(genreFilter)) return false;
+            return true;
+        });
+
+        filtered.sort((a, b) => {
+            switch(sortBy) {
+                case 'title':
+                    return a.title.localeCompare(b.title);
+                case 'year':
+                    return (b.year || 0) - (a.year || 0);
+                case 'rating':
+                    return (b.rating || 0) - (a.rating || 0);
+                case 'added':
+                default:
+                    return new Date(b.addedDate) - new Date(a.addedDate);
+            }
+        });
+
+        document.getElementById('filteredCount').textContent = filtered.length;
+
+        if (filtered.length === 0) {
+            watchlistDiv.innerHTML = '';
+            emptyState.style.display = 'block';
+            return;
         }
 
-        function renderWatchlist() {
-            const watchlistDiv = document.getElementById('watchlist');
-            const emptyState = document.getElementById('emptyState');
-            const statusFilter = document.getElementById('statusFilter').value;
-            const sortBy = document.getElementById('sortBy').value;
-            const genreFilter = document.getElementById('myGenreFilter').value;
-
-            const list = getCurrentList();
-            let filtered = list.filter(item => {
-                if (statusFilter !== 'all' && item.status !== statusFilter) return false;
-                if (genreFilter && !item.genres.includes(genreFilter)) return false;
-                return true;
-            });
-
-            filtered.sort((a, b) => {
-                switch(sortBy) {
-                    case 'title':
-                        return a.title.localeCompare(b.title);
-                    case 'year':
-                        return (b.year || 0) - (a.year || 0);
-                    case 'rating':
-                        return (b.rating || 0) - (a.rating || 0);
-                    case 'added':
-                    default:
-                        return new Date(b.addedDate) - new Date(a.addedDate);
-                }
-            });
-
-            document.getElementById('filteredCount').textContent = filtered.length;
-
-            if (filtered.length === 0) {
-                watchlistDiv.innerHTML = '';
-                emptyState.style.display = 'block';
-                return;
-            }
-
-            emptyState.style.display = 'none';
-            
-            if (currentViewMode === 'simple') {
-                watchlistDiv.className = 'watchlist-grid simple-view';
-                watchlistDiv.innerHTML = filtered.map(item => `
-                    <div class="simple-list-item" onclick="showDetails(${item.id})">
-                        <img src="${item.poster || 'https://via.placeholder.com/100x150?text=No+Image'}" 
-                             alt="${item.title}"
-                             class="simple-thumbnail"
-                             loading="lazy">
-                        <div class="simple-content">
-                            <div class="simple-title">${item.title}</div>
-                            <div class="simple-meta">
-                                <span style="color: var(--text-secondary); font-size: 0.9rem;">${item.year}</span>
-                                ${item.rating > 0 ? `
-                                    <div class="simple-rating">
-                                        ${[1,2,3,4,5].map(star => 
-                                            `<span class="star ${star <= item.rating ? 'filled' : ''}" style="cursor: default;">★</span>`
-                                        ).join('')}
-                                    </div>
-                                ` : ''}
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-                return;
-            }
-
-            watchlistDiv.className = `watchlist-grid ${currentViewMode === 'list' ? 'list-view' : ''}`;
-
+        emptyState.style.display = 'none';
+        
+        if (currentViewMode === 'simple') {
+            watchlistDiv.className = 'watchlist-grid simple-view';
             watchlistDiv.innerHTML = filtered.map(item => `
-                <div class="watchlist-item ${currentViewMode === 'list' ? 'list-view' : ''}">
-                    <img src="${item.poster || 'https://via.placeholder.com/500x750?text=No+Poster'}" 
+                <div class="simple-list-item" data-movie-id="${item.id}">
+                    <img src="${item.poster || 'https://via.placeholder.com/100x150?text=No+Image'}" 
                          alt="${item.title}"
-                         class="watchlist-poster"
-                         onclick="showDetails(${item.id})"
-                         loading="lazy"
-                         style="cursor: pointer;">
-                    <div class="watchlist-details">
-                        <div class="watchlist-header-row">
-                            <div>
-                                <div class="watchlist-title">${item.title}</div>
-                                <span class="status-badge status-${item.status}">${formatStatus(item.status)}</span>
-                            </div>
-                        </div>
-                        
-                        <div class="watchlist-meta">
-                            <span class="meta-item">📅 ${item.year}</span>
-                            ${currentMode === 'movies' && item.runtime ? `<span class="meta-item">⏱️ ${item.runtime} min</span>` : ''}
-                            ${currentMode === 'shows' && item.seasons ? `<span class="meta-item">📺 ${item.seasons} season${item.seasons !== 1 ? 's' : ''}</span>` : ''}
-                            ${item.voteAverage ? `<span class="meta-item">⭐ ${item.voteAverage.toFixed(1)}</span>` : ''}
-                        </div>
-
-                        ${item.genres.length > 0 ? `
-                            <div class="genres-list">
-                                ${item.genres.slice(0, 3).map(genre => `<span class="genre-tag">${genre}</span>`).join('')}
-                            </div>
-                        ` : ''}
-
-                        <div class="rating-section">
-                            <div class="rating-label">My Rating:</div>
-                            <div class="stars">
-                                ${[1,2,3,4,5].map(star => `
-                                    <span class="star ${star <= item.rating ? 'filled' : ''}" 
-                                          onclick="setRating(${item.id}, ${star})">★</span>
-                                `).join('')}
-                            </div>
-                        </div>
-
-                        ${item.tags.length > 0 ? `
-                            <div class="tags">
-                                ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                            </div>
-                        ` : ''}
-
-                        ${item.notes && currentViewMode === 'list' ? `
-                            <p style="font-size: 0.9rem; margin: 12px 0; color: var(--text-secondary); line-height: 1.5;">${item.notes}</p>
-                        ` : ''}
-
-                        <div class="actions">
-                            <button class="btn-small btn-secondary" onclick="editItem(${item.id})">✏️ Edit</button>
-                            <button class="btn-small btn-secondary" onclick="changeStatus(${item.id})">🔄 Status</button>
-                            <button class="btn-small btn-danger" onclick="removeItem(${item.id})">🗑️ Remove</button>
+                         class="simple-thumbnail"
+                         loading="lazy">
+                    <div class="simple-content">
+                        <div class="simple-title">${item.title}</div>
+                        <div class="simple-meta">
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">${item.year}</span>
+                            ${item.rating > 0 ? `
+                                <div class="simple-rating">
+                                    ${[1,2,3,4,5].map(star => 
+                                        `<span class="star ${star <= item.rating ? 'filled' : ''}" style="cursor: default; pointer-events: none;">★</span>`
+                                    ).join('')}
+                                </div>
+                            ` : '<span style="color: var(--text-secondary); font-size: 0.9rem;">Not rated</span>'}
                         </div>
                     </div>
                 </div>
             `).join('');
+            return;
         }
 
-        function editItem(id) {
-            const list = getCurrentList();
-            const item = list.find(m => m.id === id);
-            if (!item) return;
+        watchlistDiv.className = `watchlist-grid ${currentViewMode === 'list' ? 'list-view' : ''}`;
 
-            const modal = document.getElementById('movieModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-
-            modalTitle.textContent = `Edit: ${item.title}`;
-            modal.classList.add('active');
-
-            modalBody.innerHTML = `
-                <div>
-                    <div class="filter-group" style="margin-bottom: 20px;">
-                        <label class="filter-label">Status</label>
-                        <select id="editStatus" style="width: 100%;">
-                            <option value="to-watch" ${item.status === 'to-watch' ? 'selected' : ''}>To Watch</option>
-                            <option value="watching" ${item.status === 'watching' ? 'selected' : ''}>Currently Watching</option>
-                            <option value="watched" ${item.status === 'watched' ? 'selected' : ''}>Watched</option>
-                        </select>
+        watchlistDiv.innerHTML = filtered.map(item => `
+            <div class="watchlist-item ${currentViewMode === 'list' ? 'list-view' : ''}" data-movie-id="${item.id}">
+                <img src="${item.poster || 'https://via.placeholder.com/500x750?text=No+Poster'}" 
+                     alt="${item.title}"
+                     class="watchlist-poster"
+                     loading="lazy"
+                     style="cursor: pointer;">
+                <div class="watchlist-details">
+                    <div class="watchlist-header-row">
+                        <div>
+                            <div class="watchlist-title">${item.title}</div>
+                            <span class="status-badge status-${item.status}">${formatStatus(item.status)}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="watchlist-meta">
+                        <span class="meta-item">📅 ${item.year}</span>
+                        ${currentMode === 'movies' && item.runtime ? `<span class="meta-item">⏱️ ${item.runtime} min</span>` : ''}
+                        ${currentMode === 'shows' && item.seasons ? `<span class="meta-item">📺 ${item.seasons} season${item.seasons !== 1 ? 's' : ''}</span>` : ''}
+                        ${item.voteAverage ? `<span class="meta-item">⭐ ${item.voteAverage.toFixed(1)}</span>` : ''}
                     </div>
 
-                    <div class="filter-group" style="margin-bottom: 20px;">
-                        <label class="filter-label">My Rating</label>
+                    ${item.genres.length > 0 ? `
+                        <div class="genres-list">
+                            ${item.genres.slice(0, 3).map(genre => `<span class="genre-tag">${genre}</span>`).join('')}
+                        </div>
+                    ` : ''}
+
+                    <div class="rating-section">
+                        <div class="rating-label">My Rating:</div>
                         <div class="stars">
                             ${[1,2,3,4,5].map(star => `
-                                <span class="star ${star <= item.rating ? 'filled' : ''}" 
-                                      onclick="document.getElementById('tempRating').value = ${star}; updateEditStars(${star})">★</span>
+                                <span class="star ${star <= item.rating ? 'filled' : ''}">★</span>
                             `).join('')}
                         </div>
-                        <input type="hidden" id="tempRating" value="${item.rating}">
                     </div>
 
-                    <div class="filter-group" style="margin-bottom: 20px;">
-                        <label class="filter-label">Notes</label>
-                        <textarea id="editNotes" class="notes">${item.notes}</textarea>
-                    </div>
+                    ${item.tags.length > 0 ? `
+                        <div class="tags">
+                            ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
 
-                    <div class="filter-group" style="margin-bottom: 20px;">
-                        <label class="filter-label">Custom Tags (comma-separated)</label>
-                        <input type="text" id="editTags" value="${item.tags.join(', ')}" 
-                               placeholder="e.g., Date Night, Comfort Watch">
-                    </div>
+                    ${item.notes && currentViewMode === 'list' ? `
+                        <p style="font-size: 0.9rem; margin: 12px 0; color: var(--text-secondary); line-height: 1.5;">${item.notes}</p>
+                    ` : ''}
 
-                    <div style="display: flex; gap: 10px; margin-top: 30px;">
-                        <button onclick="saveEdit(${id})">💾 Save Changes</button>
-                        <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    <div class="actions">
+                        <button class="btn-small btn-secondary" data-action="edit">✏️ Edit</button>
+                        <button class="btn-small btn-secondary" data-action="status">🔄 Status</button>
+                        <button class="btn-small btn-danger" data-action="remove">🗑️ Remove</button>
                     </div>
                 </div>
-            `;
-        }
+            </div>
+        `).join('');
+    }
 
-        function updateEditStars(rating) {
-            const stars = document.querySelectorAll('.modal .stars .star');
-            stars.forEach((star, index) => {
-                if (index < rating) {
-                    star.classList.add('filled');
-                } else {
-                    star.classList.remove('filled');
-                }
-            });
-        }
+    function editItem(id) {
+        const list = getCurrentList();
+        const item = list.find(m => m.id === id);
+        if (!item) return;
 
-        function saveEdit(id) {
-            const list = getCurrentList();
-            const item = list.find(m => m.id === id);
-            if (!item) return;
+        const modal = document.getElementById('movieModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
 
-            item.status = document.getElementById('editStatus').value;
-            item.rating = parseInt(document.getElementById('tempRating').value) || 0;
-            item.notes = document.getElementById('editNotes').value;
-            item.tags = document.getElementById('editTags').value
-                .split(',')
-                .map(tag => tag.trim())
-                .filter(tag => tag);
+        modalTitle.textContent = `Edit: ${item.title}`;
+        modal.classList.add('active');
 
-            if (item.status === 'watched' && !item.watchedDate) {
-                item.watchedDate = new Date().toISOString();
-            }
-
-            setCurrentList(list);
-            updateStats();
-            renderWatchlist();
-            closeModal();
-        }
-
-        function setRating(id, rating) {
-            const list = getCurrentList();
-            const item = list.find(m => m.id === id);
-            if (!item) return;
-
-            item.rating = rating;
-            setCurrentList(list);
-            updateStats();
-            renderWatchlist();
-        }
-
-        function changeStatus(id) {
-            const list = getCurrentList();
-            const item = list.find(m => m.id === id);
-            if (!item) return;
-
-            const statuses = ['to-watch', 'watching', 'watched'];
-            const currentIndex = statuses.indexOf(item.status);
-            item.status = statuses[(currentIndex + 1) % statuses.length];
-
-            if (item.status === 'watched' && !item.watchedDate) {
-                item.watchedDate = new Date().toISOString();
-            }
-
-            setCurrentList(list);
-            updateStats();
-            renderWatchlist();
-        }
-
-        function removeItem(id) {
-            const list = getCurrentList();
-            const item = list.find(m => m.id === id);
-            if (!item) return;
-
-            if (confirm(`Remove "${item.title}"?`)) {
-                const newList = list.filter(m => m.id !== id);
-                setCurrentList(newList);
-                updateStats();
-                renderWatchlist();
-                updateGenreFilters();
-            }
-        }
-
-        function pickRandom() {
-            const list = getCurrentList();
-            const toWatch = list.filter(m => m.status === 'to-watch');
-            
-            if (toWatch.length === 0) {
-                alert('No items in your "To Watch" list!');
-                return;
-            }
-
-            const random = toWatch[Math.floor(Math.random() * toWatch.length)];
-            showDetails(random.id);
-        }
-
-        function showImport() {
-            const modal = document.getElementById('movieModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-
-            const mediaName = currentMode === 'movies' ? 'Movies' : 'TV Shows';
-            modalTitle.textContent = `📋 Import ${mediaName}`;
-            modal.classList.add('active');
-
-            modalBody.innerHTML = `
-                <div>
-                    <p style="margin-bottom: 15px; color: var(--text-secondary);">
-                        Paste your ${mediaName.toLowerCase()} list below. Enter one title per line.
-                    </p>
-                    
-                    <textarea id="importTextarea" class="import-textarea" placeholder="Breaking Bad
-Game of Thrones
-The Office
-Stranger Things
-..."></textarea>
-
-                    <div style="display: flex; gap: 10px; margin-top: 20px;">
-                        <button onclick="importList()">🔍 Import ${mediaName}</button>
-                        <button class="btn-secondary" onclick="closeModal()">Cancel</button>
-                    </div>
-
-                    <div id="importResults" style="display: none;"></div>
+        modalBody.innerHTML = `
+            <div>
+                <div class="filter-group" style="margin-bottom: 20px;">
+                    <label class="filter-label">Status</label>
+                    <select id="editStatus" style="width: 100%;">
+                        <option value="to-watch" ${item.status === 'to-watch' ? 'selected' : ''}>To Watch</option>
+                        <option value="watching" ${item.status === 'watching' ? 'selected' : ''}>Currently Watching</option>
+                        <option value="watched" ${item.status === 'watched' ? 'selected' : ''}>Watched</option>
+                    </select>
                 </div>
-            `;
+
+                <div class="filter-group" style="margin-bottom: 20px;">
+                    <label class="filter-label">My Rating</label>
+                    <div class="stars">
+                        ${[1,2,3,4,5].map(star => `
+                            <span class="star ${star <= item.rating ? 'filled' : ''}" 
+                                  onclick="document.getElementById('tempRating').value = ${star}; updateEditStars(${star})">★</span>
+                        `).join('')}
+                    </div>
+                    <input type="hidden" id="tempRating" value="${item.rating}">
+                </div>
+
+                <div class="filter-group" style="margin-bottom: 20px;">
+                    <label class="filter-label">Notes</label>
+                    <textarea id="editNotes" class="notes">${item.notes}</textarea>
+                </div>
+
+                <div class="filter-group" style="margin-bottom: 20px;">
+                    <label class="filter-label">Custom Tags (comma-separated)</label>
+                    <input type="text" id="editTags" value="${item.tags.join(', ')}" 
+                           placeholder="e.g., Date Night, Comfort Watch">
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 30px;">
+                    <button onclick="saveEdit(${id})">💾 Save Changes</button>
+                    <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        `;
+    }
+
+    function updateEditStars(rating) {
+        const stars = document.querySelectorAll('.modal .stars .star');
+        stars.forEach((star, index) => {
+            if (index < rating) {
+                star.classList.add('filled');
+            } else {
+                star.classList.remove('filled');
+            }
+        });
+    }
+
+    function saveEdit(id) {
+        const list = getCurrentList();
+        const item = list.find(m => m.id === id);
+        if (!item) return;
+
+        item.status = document.getElementById('editStatus').value;
+        // Validate rating (0-5)
+        const rawRating = parseInt(document.getElementById('tempRating').value) || 0;
+        item.rating = Math.max(0, Math.min(5, rawRating));
+        
+        // Limit notes size to 5000 characters
+        const rawNotes = document.getElementById('editNotes').value;
+        item.notes = rawNotes.substring(0, 5000);
+        
+        // Sanitize and limit tags
+        item.tags = document.getElementById('editTags').value
+            .split(',')
+            .map(tag => tag.trim().substring(0, 50))
+            .filter(tag => tag)
+            .slice(0, 20); // Max 20 tags
+
+        if (item.status === 'watched' && !item.watchedDate) {
+            item.watchedDate = new Date().toISOString();
         }
 
-        async function importList() {
-            const textarea = document.getElementById('importTextarea');
-            const resultsDiv = document.getElementById('importResults');
-            const text = textarea.value.trim();
+        setCurrentList(list);
+        updateStats();
+        renderWatchlist();
+        closeModal();
+    }
 
-            if (!text) {
-                alert('Please paste some titles first!');
-                return;
-            }
+    function setRating(id, rating) {
+        const list = getCurrentList();
+        const item = list.find(m => m.id === id);
+        if (!item) return;
 
-            const lines = text.split('\n')
-                .map(line => line.trim())
-                .filter(line => line.length > 0)
-                .filter(line => !line.match(/^[\u0590-\u05FF\s]+$/));
+        // Validate rating (1-5)
+        item.rating = Math.max(1, Math.min(5, parseInt(rating) || 0));
+        setCurrentList(list);
+        updateStats();
+        renderWatchlist();
+    }
 
-            if (lines.length === 0) {
-                alert('No valid titles found!');
-                return;
-            }
+    function changeStatus(id) {
+        const list = getCurrentList();
+        const item = list.find(m => m.id === id);
+        if (!item) return;
 
-            resultsDiv.style.display = 'block';
-            resultsDiv.innerHTML = `
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>Searching for ${lines.length} ${currentMode === 'movies' ? 'movies' : 'shows'}...</p>
-                </div>
-            `;
+        const statuses = ['to-watch', 'watching', 'watched'];
+        const currentIndex = statuses.indexOf(item.status);
+        item.status = statuses[(currentIndex + 1) % statuses.length];
 
-            const found = [];
-            const notFound = [];
-            let processed = 0;
-            const mediaType = currentMode === 'movies' ? 'movie' : 'tv';
-            const list = getCurrentList();
+        if (item.status === 'watched' && !item.watchedDate) {
+            item.watchedDate = new Date().toISOString();
+        }
 
-            for (const title of lines) {
-                try {
-                    const response = await fetch(
-                        `${TMDB_BASE_URL}/search/${mediaType}?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(title)}&language=en-US`
-                    );
-                    
-                    if (!response.ok) throw new Error('Search failed');
-                    
-                    const data = await response.json();
-                    
-                    if (data.results && data.results.length > 0) {
-                        const item = data.results[0];
-                        
-                        if (!list.some(m => m.id === item.id)) {
-                            const detailsResponse = await fetch(
-                                `${TMDB_BASE_URL}/${mediaType}/${item.id}?api_key=${TMDB_API_KEY}&language=en-US`
-                            );
-                            const fullItem = await detailsResponse.json();
-                            
-                            addToList(fullItem);
-                            const itemTitle = currentMode === 'movies' ? fullItem.title : fullItem.name;
-                            found.push(itemTitle);
-                        } else {
-                            const itemTitle = currentMode === 'movies' ? item.title : item.name;
-                            found.push(itemTitle + ' (already in list)');
-                        }
-                    } else {
-                        notFound.push(title);
-                    }
-                } catch (error) {
-                    console.error(`Failed to import "${title}":`, error);
-                    notFound.push(title);
-                }
+        setCurrentList(list);
+        updateStats();
+        renderWatchlist();
+    }
 
-                processed++;
-                resultsDiv.innerHTML = `
-                    <div class="loading">
-                        <div class="spinner"></div>
-                        <p>Processing ${processed} of ${lines.length}...</p>
-                    </div>
-                `;
-            }
+    function removeItem(id) {
+        const list = getCurrentList();
+        const item = list.find(m => m.id === id);
+        if (!item) return;
 
+        if (confirm(`Remove "${item.title}"?`)) {
+            const newList = list.filter(m => m.id !== id);
+            setCurrentList(newList);
             updateStats();
             renderWatchlist();
             updateGenreFilters();
+        }
+    }
 
-            resultsDiv.innerHTML = `
-                <div class="import-results">
-                    ${found.length > 0 ? `
-                        <div class="import-success">
-                            <strong>✅ Successfully imported ${found.length}:</strong>
-                            <ul style="margin-top: 10px; padding-left: 20px;">
-                                ${found.slice(0, 10).map(title => `<li>${title}</li>`).join('')}
-                                ${found.length > 10 ? `<li><em>...and ${found.length - 10} more</em></li>` : ''}
-                            </ul>
-                        </div>
-                    ` : ''}
-                    
-                    ${notFound.length > 0 ? `
+    function pickRandom() {
+        const list = getCurrentList();
+        const toWatch = list.filter(m => m.status === 'to-watch');
+        
+        if (toWatch.length === 0) {
+            alert('No items in your "To Watch" list!');
+            return;
+        }
+
+        const random = toWatch[Math.floor(Math.random() * toWatch.length)];
+        showDetails(random.id);
+    }
+
+    function showImport() {
+        const modal = document.getElementById('movieModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+
+        const mediaName = currentMode === 'movies' ? 'Movies' : 'TV Shows';
+        modalTitle.textContent = `📋 Import ${mediaName}`;
+        modal.classList.add('active');
+
+        modalBody.innerHTML = `
+            <div>
+                <p style="margin-bottom: 15px; color: var(--text-secondary);">
+                    Paste your ${mediaName.toLowerCase()} list below. Enter one title per line.
+                </p>
+                <p style="margin-bottom: 15px; color: var(--accent-primary); font-size: 0.9rem;">
+                    ✨ Smart import features:<br>
+                    • Works with typos (e.g., "Dovtor Strange" finds "Doctor Strange")<br>
+                    • Supports Hebrew text (מלך האריות, שליחות בלתי אפשרית)<br>
+                    • Handles mixed Hebrew/English lines
+                </p>
+                
+                <textarea id="importTextarea" class="import-textarea" placeholder="Breaking Bad
+```
+
+Game of Thrones
+דוקטור סטריינג’ Doctor Strange
+The Office
+מלך האריות
+Stranger Things
+…” aria-label=“Import list textarea”></textarea>
+
+```
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button onclick="importList()" id="importBtn">🔍 Import ${mediaName}</button>
+                    <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+                </div>
+
+                <div id="importResults" style="display: none;"></div>
+            </div>
+        `;
+    }
+
+    async function importList() {
+        const textarea = document.getElementById('importTextarea');
+        const resultsDiv = document.getElementById('importResults');
+        const importBtn = document.getElementById('importBtn');
+        const text = textarea.value.trim();
+
+        if (!text) {
+            alert('Please paste some titles first!');
+            return;
+        }
+
+        const lines = text.split('\n')
+            .map(line => line.trim())
+            .filter(line => line.length > 0);
+
+        if (lines.length === 0) {
+            alert('No valid titles found!');
+            return;
+        }
+
+        importCancelled = false;
+        importBtn.disabled = true;
+        
+        resultsDiv.style.display = 'block';
+        resultsDiv.innerHTML = `
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Searching for ${lines.length} ${currentMode === 'movies' ? 'movies' : 'shows'}...</p>
+                <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-secondary);">Using smart matching for typos and Hebrew text...</p>
+                <div class="progress-container" style="margin: 20px 0;">
+                    <div class="progress-bar" style="height: 12px;">
+                        <div class="progress-fill" id="importProgress" style="width: 0%"></div>
+                    </div>
+                    <p style="text-align: center; margin-top: 10px; font-size: 0.9rem;">
+                        <span id="importProcessed">0</span> of ${lines.length} processed
+                    </p>
+                </div>
+                <button class="btn-danger btn-small" onclick="cancelImport()" style="margin-top: 10px;">Cancel Import</button>
+            </div>
+        `;
+
+        const found = [];
+        const notFound = [];
+        let processed = 0;
+        const mediaType = currentMode === 'movies' ? 'movie' : 'tv';
+        const list = getCurrentList();
+
+        for (const title of lines) {
+            if (importCancelled) {
+                resultsDiv.innerHTML = `
+                    <div class="import-results">
                         <div class="import-failed">
-                            <strong>❌ Could not find ${notFound.length}:</strong>
-                            <div class="failed-movies-list">
-                                <ul style="padding-left: 20px;">
-                                    ${notFound.map(title => `<li>${title}</li>`).join('')}
-                                </ul>
-                            </div>
-                            <p style="margin-top: 10px; font-size: 0.9rem;">
-                                You can search for these manually.
-                            </p>
+                            <strong>⚠️ Import cancelled</strong>
+                            <p>Processed ${processed} of ${lines.length} items before cancellation.</p>
                         </div>
-                    ` : ''}
-                    
-                    <button onclick="closeModal()" style="margin-top: 20px;">Close</button>
-                </div>
-            `;
-
-            textarea.value = '';
-        }
-
-        function showStats() {
-            const modal = document.getElementById('movieModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-
-            const mediaName = currentMode === 'movies' ? 'Movie' : 'TV Show';
-            modalTitle.textContent = `📊 Your ${mediaName} Statistics`;
-            modal.classList.add('active');
-
-            const list = getCurrentList();
-            const watched = list.filter(m => m.status === 'watched');
-            
-            let totalTime = 0;
-            if (currentMode === 'movies') {
-                totalTime = watched.reduce((sum, m) => sum + (m.runtime || 0), 0);
-            } else {
-                totalTime = watched.reduce((sum, m) => sum + (m.episodes || 0) * 45, 0); // Estimate 45min per episode
-            }
-
-            const avgRating = watched.length > 0 
-                ? (watched.reduce((sum, m) => sum + m.rating, 0) / watched.length).toFixed(1)
-                : 0;
-
-            const genreCounts = {};
-            list.forEach(item => {
-                item.genres.forEach(genre => {
-                    genreCounts[genre] = (genreCounts[genre] || 0) + 1;
-                });
-            });
-
-            const topGenres = Object.entries(genreCounts)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 5);
-
-            const thisYear = new Date().getFullYear();
-            const watchedThisYear = watched.filter(m => {
-                if (!m.watchedDate) return false;
-                const watchedDate = new Date(m.watchedDate);
-                return watchedDate.getFullYear() === thisYear;
-            }).length;
-
-            modalBody.innerHTML = `
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <div class="stat-box-value">${list.length}</div>
-                        <div class="stat-box-label">Total ${mediaName}s</div>
+                        <button onclick="closeModal()" style="margin-top: 20px;">Close</button>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-box-value">${watched.length}</div>
-                        <div class="stat-box-label">Watched</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-box-value">${Math.floor(totalTime / 60)}h ${totalTime % 60}m</div>
-                        <div class="stat-box-label">Total Time</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-box-value">${avgRating}⭐</div>
-                        <div class="stat-box-label">Average Rating</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-box-value">${watchedThisYear}</div>
-                        <div class="stat-box-label">Watched This Year</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-box-value">${list.filter(m => m.status === 'to-watch').length}</div>
-                        <div class="stat-box-label">To Watch</div>
-                    </div>
-                </div>
-
-                ${topGenres.length > 0 ? `
-                <div class="chart-container">
-                    <h3 style="margin-bottom: 15px;">Top Genres</h3>
-                    ${topGenres.map(([genre, count]) => `
-                        <div style="margin-bottom: 12px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                <span>${genre}</span>
-                                <span>${count} ${mediaName.toLowerCase()}s</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: ${(count / list.length) * 100}%"></div>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-                ` : ''}
-
-                <div class="chart-container">
-                    <h3 style="margin-bottom: 15px;">Progress</h3>
-                    <div class="progress-container">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span>Completion Rate</span>
-                            <span>${list.length > 0 ? ((watched.length / list.length) * 100).toFixed(1) : 0}%</span>
-                        </div>
-                        <div class="progress-bar" style="height: 20px;">
-                            <div class="progress-fill" style="width: ${list.length > 0 ? (watched.length / list.length) * 100 : 0}%"></div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function exportToCSV() {
-            const list = getCurrentList();
-            if (list.length === 0) {
-                alert('Nothing to export!');
+                `;
+                importBtn.disabled = false;
                 return;
             }
 
-            const mediaName = currentMode === 'movies' ? 'Movie' : 'Show';
-            const headers = ['Title', 'Year', 'Status', 'Rating', 'Genres', currentMode === 'movies' ? 'Runtime' : 'Seasons', 'Notes', 'Tags', 'Added Date', 'Watched Date'];
-            const rows = list.map(item => [
-                item.title,
-                item.year,
-                formatStatus(item.status),
-                item.rating,
-                item.genres.join('; '),
-                currentMode === 'movies' ? (item.runtime || '') : (item.seasons || ''),
-                item.notes.replace(/"/g, '""'),
-                item.tags.join('; '),
-                new Date(item.addedDate).toLocaleDateString(),
-                item.watchedDate ? new Date(item.watchedDate).toLocaleDateString() : ''
-            ]);
-
-            let csv = headers.join(',') + '\n';
-            rows.forEach(row => {
-                csv += row.map(cell => `"${cell}"`).join(',') + '\n';
-            });
-
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `cinetrack-${currentMode}-${new Date().toISOString().split('T')[0]}.csv`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function setViewMode(mode) {
-            currentViewMode = mode;
-            document.getElementById('gridViewBtn').classList.toggle('active', mode === 'grid');
-            document.getElementById('listViewBtn').classList.toggle('active', mode === 'list');
-            document.getElementById('simpleViewBtn').classList.toggle('active', mode === 'simple');
-            renderWatchlist();
-        }
-
-        function clearFilters() {
-            document.getElementById('statusFilter').value = 'all';
-            document.getElementById('sortBy').value = 'added';
-            document.getElementById('myGenreFilter').value = '';
-            filterWatchlist();
-        }
-
-        function filterWatchlist() {
-            renderWatchlist();
-        }
-
-        function updateGenreFilters() {
-            const list = getCurrentList();
-            const allGenres = new Set();
-            list.forEach(item => {
-                item.genres.forEach(genre => allGenres.add(genre));
-            });
-
-            const select = document.getElementById('myGenreFilter');
-            const currentValue = select.value;
-            
-            select.innerHTML = '<option value="">All Genres</option>';
-            Array.from(allGenres).sort().forEach(genre => {
-                const option = document.createElement('option');
-                option.value = genre;
-                option.textContent = genre;
-                select.appendChild(option);
-            });
-
-            if (currentValue && allGenres.has(currentValue)) {
-                select.value = currentValue;
-            }
-        }
-
-        function formatStatus(status) {
-            const map = {
-                'to-watch': 'To Watch',
-                'watching': 'Watching',
-                'watched': 'Watched'
-            };
-            return map[status] || status;
-        }
-
-        function updateStats() {
-            const list = getCurrentList();
-            const watched = list.filter(m => m.status === 'watched');
-            
-            let totalTime = 0;
-            if (currentMode === 'movies') {
-                totalTime = watched.reduce((sum, m) => sum + (m.runtime || 0), 0);
-            } else {
-                totalTime = watched.reduce((sum, m) => sum + (m.episodes || 0) * 45, 0);
+            try {
+                // Try searching with the original text first
+                let response = await fetchWithTimeout(
+                    `${TMDB_BASE_URL}/search/${mediaType}?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(title)}&language=en-US`,
+                    {},
+                    8000 // 8 second timeout
+                );
+                
+                if (!response.ok) throw new Error('Search failed');
+                
+                let data = await response.json();
+                
+                // If no results and text contains Hebrew, also try without Hebrew
+                if ((!data.results || data.results.length === 0) && /[\u0590-\u05FF]/.test(title)) {
+                    const englishOnly = title.replace(/[\u0590-\u05FF\s]+/g, '').trim();
+                    if (englishOnly) {
+                        response = await fetchWithTimeout(
+                            `${TMDB_BASE_URL}/search/${mediaType}?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(englishOnly)}&language=en-US`,
+                            {},
+                            8000
+                        );
+                        data = await response.json();
+                    }
+                }
+                
+                if (data.results && data.results.length > 0) {
+                    const bestMatch = findBestMatch(title, data.results);
+                    
+                    if (bestMatch && !list.some(m => m.id === bestMatch.id)) {
+                        const detailsResponse = await fetchWithTimeout(
+                            `${TMDB_BASE_URL}/${mediaType}/${bestMatch.id}?api_key=${TMDB_API_KEY}&language=en-US`,
+                            {},
+                            8000
+                        );
+                        const fullItem = await detailsResponse.json();
+                        
+                        addToList(fullItem);
+                        const itemTitle = currentMode === 'movies' ? fullItem.title : fullItem.name;
+                        const confidence = calculateSimilarity(title, itemTitle);
+                        found.push(`${itemTitle}${confidence < 0.7 ? ' (fuzzy match)' : ''}`);
+                    } else if (bestMatch) {
+                        const itemTitle = currentMode === 'movies' ? bestMatch.title : bestMatch.name;
+                        found.push(itemTitle + ' (already in list)');
+                    } else {
+                        notFound.push(title);
+                    }
+                } else {
+                    notFound.push(title);
+                }
+            } catch (error) {
+                console.error(`Failed to import "${title}":`, error);
+                if (error.message === 'Request timeout') {
+                    notFound.push(`${title} (timeout)`);
+                } else {
+                    notFound.push(title);
+                }
             }
 
-            const ratedItems = watched.filter(m => m.rating > 0);
-            const avgRating = ratedItems.length > 0
-                ? (ratedItems.reduce((sum, m) => sum + m.rating, 0) / ratedItems.length).toFixed(1)
-                : '-';
-
-            const statsHtml = `
-                <div class="stat-card">
-                    <div class="stat-value">${list.length}</div>
-                    <div class="stat-label">Total ${currentMode === 'movies' ? 'Movies' : 'Shows'}</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${watched.length}</div>
-                    <div class="stat-label">Watched</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${list.filter(m => m.status === 'to-watch').length}</div>
-                    <div class="stat-label">To Watch</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${list.filter(m => m.status === 'watching').length}</div>
-                    <div class="stat-label">Watching</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${Math.floor(totalTime / 60)}h</div>
-                    <div class="stat-label">Total Time</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${avgRating}${avgRating !== '-' ? '⭐' : ''}</div>
-                    <div class="stat-label">Avg Rating</div>
-                </div>
-            `;
-
-            document.getElementById('headerStats').innerHTML = statsHtml;
+            processed++;
+            const progressPercent = Math.round((processed / lines.length) * 100);
+            document.getElementById('importProgress').style.width = `${progressPercent}%`;
+            document.getElementById('importProcessed').textContent = processed;
         }
 
-        function closeModal() {
-            document.getElementById('movieModal').classList.remove('active');
-        }
+        updateStats();
+        renderWatchlist();
+        updateGenreFilters();
+        importBtn.disabled = false;
 
-        document.getElementById('movieModal').addEventListener('click', (e) => {
-            if (e.target.id === 'movieModal') closeModal();
+        resultsDiv.innerHTML = `
+            <div class="import-results">
+                ${found.length > 0 ? `
+                    <div class="import-success">
+                        <strong>✅ Successfully imported ${found.length}:</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            ${found.slice(0, 10).map(title => `<li>${title}</li>`).join('')}
+                            ${found.length > 10 ? `<li><em>...and ${found.length - 10} more</em></li>` : ''}
+                        </ul>
+                    </div>
+                ` : ''}
+                
+                ${notFound.length > 0 ? `
+                    <div class="import-failed">
+                        <strong>❌ Could not find ${notFound.length}:</strong>
+                        <div class="failed-movies-list">
+                            <ul style="padding-left: 20px;">
+                                ${notFound.map(title => `<li>${title}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">
+                            You can search for these manually.
+                        </p>
+                    </div>
+                ` : ''}
+                
+                <button onclick="closeModal()" style="margin-top: 20px;">Close</button>
+            </div>
+        `;
+
+        textarea.value = '';
+    }
+
+    function cancelImport() {
+        importCancelled = true;
+    }
+
+    // Helper function to find best match from search results
+    function findBestMatch(query, results) {
+        if (!results || results.length === 0) return null;
+        
+        // Calculate similarity for each result
+        const scored = results.map(item => {
+            const title = currentMode === 'movies' ? item.title : item.name;
+            const similarity = calculateSimilarity(query, title);
+            return { item, similarity };
         });
-    </script>
+        
+        // Sort by similarity
+        scored.sort((a, b) => b.similarity - a.similarity);
+        
+        // Return best match if similarity is above threshold (0.4 for fuzzy matching)
+        return scored[0].similarity > 0.4 ? scored[0].item : null;
+    }
+
+    // Calculate string similarity (Levenshtein-based)
+    function calculateSimilarity(str1, str2) {
+        // Normalize strings
+        const s1 = str1.toLowerCase().replace(/[^a-z0-9\u0590-\u05FF]/g, '');
+        const s2 = str2.toLowerCase().replace(/[^a-z0-9\u0590-\u05FF]/g, '');
+        
+        // Quick exact match
+        if (s1 === s2) return 1.0;
+        
+        // Check if one contains the other
+        if (s1.includes(s2) || s2.includes(s1)) return 0.8;
+        
+        // Levenshtein distance
+        const distance = levenshteinDistance(s1, s2);
+        const maxLen = Math.max(s1.length, s2.length);
+        
+        if (maxLen === 0) return 1.0;
+        
+        return 1 - (distance / maxLen);
+    }
+
+    // Levenshtein distance algorithm
+    function levenshteinDistance(str1, str2) {
+        const matrix = [];
+        
+        for (let i = 0; i <= str2.length; i++) {
+            matrix[i] = [i];
+        }
+        
+        for (let j = 0; j <= str1.length; j++) {
+            matrix[0][j] = j;
+        }
+        
+        for (let i = 1; i <= str2.length; i++) {
+            for (let j = 1; j <= str1.length; j++) {
+                if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+                } else {
+                    matrix[i][j] = Math.min(
+                        matrix[i - 1][j - 1] + 1,
+                        matrix[i][j - 1] + 1,
+                        matrix[i - 1][j] + 1
+                    );
+                }
+            }
+        }
+        
+        return matrix[str2.length][str1.length];
+    }
+
+    function showStats() {
+        const modal = document.getElementById('movieModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+
+        const mediaName = currentMode === 'movies' ? 'Movie' : 'TV Show';
+        modalTitle.textContent = `📊 Your ${mediaName} Statistics`;
+        modal.classList.add('active');
+
+        const list = getCurrentList();
+        const watched = list.filter(m => m.status === 'watched');
+        
+        let totalTime = 0;
+        if (currentMode === 'movies') {
+            totalTime = watched.reduce((sum, m) => sum + (m.runtime || 0), 0);
+        } else {
+            totalTime = watched.reduce((sum, m) => sum + (m.episodes || 0) * 45, 0); // Estimate 45min per episode
+        }
+
+        const avgRating = watched.length > 0 
+            ? (watched.reduce((sum, m) => sum + m.rating, 0) / watched.length).toFixed(1)
+            : 0;
+
+        const genreCounts = {};
+        list.forEach(item => {
+            item.genres.forEach(genre => {
+                genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+            });
+        });
+
+        const topGenres = Object.entries(genreCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 5);
+
+        const thisYear = new Date().getFullYear();
+        const watchedThisYear = watched.filter(m => {
+            if (!m.watchedDate) return false;
+            const watchedDate = new Date(m.watchedDate);
+            return watchedDate.getFullYear() === thisYear;
+        }).length;
+
+        modalBody.innerHTML = `
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-box-value">${list.length}</div>
+                    <div class="stat-box-label">Total ${mediaName}s</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-box-value">${watched.length}</div>
+                    <div class="stat-box-label">Watched</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-box-value">${Math.floor(totalTime / 60)}h ${totalTime % 60}m</div>
+                    <div class="stat-box-label">Total Time</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-box-value">${avgRating}⭐</div>
+                    <div class="stat-box-label">Average Rating</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-box-value">${watchedThisYear}</div>
+                    <div class="stat-box-label">Watched This Year</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-box-value">${list.filter(m => m.status === 'to-watch').length}</div>
+                    <div class="stat-box-label">To Watch</div>
+                </div>
+            </div>
+
+            ${topGenres.length > 0 ? `
+            <div class="chart-container">
+                <h3 style="margin-bottom: 15px;">Top Genres</h3>
+                ${topGenres.map(([genre, count]) => `
+                    <div style="margin-bottom: 12px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>${genre}</span>
+                            <span>${count} ${mediaName.toLowerCase()}s</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${(count / list.length) * 100}%"></div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            ` : ''}
+
+            <div class="chart-container">
+                <h3 style="margin-bottom: 15px;">Progress</h3>
+                <div class="progress-container">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span>Completion Rate</span>
+                        <span>${list.length > 0 ? ((watched.length / list.length) * 100).toFixed(1) : 0}%</span>
+                    </div>
+                    <div class="progress-bar" style="height: 20px;">
+                        <div class="progress-fill" style="width: ${list.length > 0 ? (watched.length / list.length) * 100 : 0}%"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function exportToCSV() {
+        const list = getCurrentList();
+        if (list.length === 0) {
+            alert('Nothing to export!');
+            return;
+        }
+
+        const mediaName = currentMode === 'movies' ? 'Movie' : 'Show';
+        const headers = ['Title', 'Year', 'Status', 'Rating', 'Genres', currentMode === 'movies' ? 'Runtime' : 'Seasons', 'Notes', 'Tags', 'Added Date', 'Watched Date'];
+        const rows = list.map(item => [
+            item.title,
+            item.year,
+            formatStatus(item.status),
+            item.rating,
+            item.genres.join('; '),
+            currentMode === 'movies' ? (item.runtime || '') : (item.seasons || ''),
+            item.notes.replace(/"/g, '""'),
+            item.tags.join('; '),
+            new Date(item.addedDate).toLocaleDateString(),
+            item.watchedDate ? new Date(item.watchedDate).toLocaleDateString() : ''
+        ]);
+
+        let csv = headers.join(',') + '\n';
+        rows.forEach(row => {
+            csv += row.map(cell => `"${cell}"`).join(',') + '\n';
+        });
+
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `cinetrack-${currentMode}-${new Date().toISOString().split('T')[0]}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    function setViewMode(mode) {
+        currentViewMode = mode;
+        document.getElementById('gridViewBtn').classList.toggle('active', mode === 'grid');
+        document.getElementById('listViewBtn').classList.toggle('active', mode === 'list');
+        document.getElementById('simpleViewBtn').classList.toggle('active', mode === 'simple');
+        renderWatchlist();
+    }
+
+    function clearFilters() {
+        document.getElementById('statusFilter').value = 'all';
+        document.getElementById('sortBy').value = 'added';
+        document.getElementById('myGenreFilter').value = '';
+        filterWatchlist();
+    }
+
+    function filterWatchlist() {
+        renderWatchlist();
+    }
+
+    function updateGenreFilters() {
+        const list = getCurrentList();
+        const allGenres = new Set();
+        list.forEach(item => {
+            item.genres.forEach(genre => allGenres.add(genre));
+        });
+
+        const select = document.getElementById('myGenreFilter');
+        const currentValue = select.value;
+        
+        select.innerHTML = '<option value="">All Genres</option>';
+        Array.from(allGenres).sort().forEach(genre => {
+            const option = document.createElement('option');
+            option.value = genre;
+            option.textContent = genre;
+            select.appendChild(option);
+        });
+
+        if (currentValue && allGenres.has(currentValue)) {
+            select.value = currentValue;
+        }
+    }
+
+    function formatStatus(status) {
+        const map = {
+            'to-watch': 'To Watch',
+            'watching': 'Watching',
+            'watched': 'Watched'
+        };
+        return map[status] || status;
+    }
+
+    function updateStats() {
+        const list = getCurrentList();
+        const watched = list.filter(m => m.status === 'watched');
+        
+        let totalTime = 0;
+        if (currentMode === 'movies') {
+            totalTime = watched.reduce((sum, m) => sum + (m.runtime || 0), 0);
+        } else {
+            totalTime = watched.reduce((sum, m) => sum + (m.episodes || 0) * 45, 0);
+        }
+
+        const ratedItems = watched.filter(m => m.rating > 0);
+        const avgRating = ratedItems.length > 0
+            ? (ratedItems.reduce((sum, m) => sum + m.rating, 0) / ratedItems.length).toFixed(1)
+            : '-';
+
+        const statsHtml = `
+            <div class="stat-card">
+                <div class="stat-value">${list.length}</div>
+                <div class="stat-label">Total ${currentMode === 'movies' ? 'Movies' : 'Shows'}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${watched.length}</div>
+                <div class="stat-label">Watched</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${list.filter(m => m.status === 'to-watch').length}</div>
+                <div class="stat-label">To Watch</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${list.filter(m => m.status === 'watching').length}</div>
+                <div class="stat-label">Watching</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${Math.floor(totalTime / 60)}h</div>
+                <div class="stat-label">Total Time</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${avgRating}${avgRating !== '-' ? '⭐' : ''}</div>
+                <div class="stat-label">Avg Rating</div>
+            </div>
+        `;
+
+        document.getElementById('headerStats').innerHTML = statsHtml;
+    }
+
+    function closeModal() {
+        document.getElementById('movieModal').classList.remove('active');
+        // Return focus to last focused element before modal
+        if (window.lastFocusedElement) {
+            window.lastFocusedElement.focus();
+        }
+    }
+
+    // Store last focused element and trap focus in modal
+    document.getElementById('movieModal').addEventListener('click', (e) => {
+        if (e.target.id === 'movieModal') {
+            closeModal();
+        }
+    });
+
+    // Trap focus in modal when it opens
+    const modal = document.getElementById('movieModal');
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'class') {
+                if (modal.classList.contains('active')) {
+                    window.lastFocusedElement = document.activeElement;
+                    // Focus first focusable element in modal
+                    const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    if (focusable.length) {
+                        focusable[0].focus();
+                    }
+                }
+            }
+        });
+    });
+    observer.observe(modal, { attributes: true });
+</script>
+```
+
 </body>
 </html>
