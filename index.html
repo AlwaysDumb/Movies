@@ -1563,6 +1563,8 @@
 <div class="back-to-top" id="backToTop" onclick="scrollToTop()" role="button" tabindex="0" aria-label="Scroll to top"></div>
 
 <script>
+    console.log('🎬 CineTrack Ultimate - Script Loaded!');
+    
     const TMDB_API_KEY = 'c60e2100665d52f3d930770371eab663';
     const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
     const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
@@ -1581,10 +1583,21 @@
     let importCancelled = false; // For cancelling imports
 
     document.addEventListener('DOMContentLoaded', async () => {
-        await loadGenres();
+        console.log('🎬 CineTrack loading...');
+        
+        // Load genres with timeout and error handling
+        try {
+            await loadGenres();
+            console.log('✅ Genres loaded');
+        } catch (error) {
+            console.warn('⚠️ Genres failed to load (app will work anyway):', error);
+        }
+        
         updateStats();
         renderWatchlist();
         updateGenreFilters();
+        
+        console.log('✅ CineTrack initialized successfully!');
         
         document.getElementById('searchInput').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') search();
@@ -1764,16 +1777,24 @@
 
     async function loadGenres() {
         try {
-            // Load movie genres
-            const movieResponse = await fetch(`${TMDB_BASE_URL}/genre/movie/list?api_key=${TMDB_API_KEY}&language=en-US`);
+            // Load movie genres with 8 second timeout
+            const movieResponse = await fetchWithTimeout(
+                `${TMDB_BASE_URL}/genre/movie/list?api_key=${TMDB_API_KEY}&language=en-US`,
+                {},
+                8000
+            );
             if (movieResponse.ok) {
                 const movieData = await movieResponse.json();
                 movieGenres = {};
                 movieData.genres.forEach(g => movieGenres[g.id] = g.name);
             }
 
-            // Load TV genres
-            const tvResponse = await fetch(`${TMDB_BASE_URL}/genre/tv/list?api_key=${TMDB_API_KEY}&language=en-US`);
+            // Load TV genres with 8 second timeout
+            const tvResponse = await fetchWithTimeout(
+                `${TMDB_BASE_URL}/genre/tv/list?api_key=${TMDB_API_KEY}&language=en-US`,
+                {},
+                8000
+            );
             if (tvResponse.ok) {
                 const tvData = await tvResponse.json();
                 showGenres = {};
@@ -1782,7 +1803,10 @@
 
             updateGenreDropdown();
         } catch (error) {
-            console.error('Failed to load genres:', error);
+            console.warn('Failed to load genres (this is OK):', error);
+            // Ensure genre objects exist even if loading failed
+            if (!movieGenres) movieGenres = {};
+            if (!showGenres) showGenres = {};
         }
     }
 
