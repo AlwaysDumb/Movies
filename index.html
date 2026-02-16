@@ -1673,6 +1673,8 @@
 <div class="back-to-top" id="backToTop" onclick="scrollToTop()" role="button" tabindex="0" aria-label="Scroll to top"></div>
 
 <script>
+    console.log('🎬 CineTrack V2 Ultimate - Script Loading...');
+    
     const TMDB_API_KEY = 'c60e2100665d52f3d930770371eab663';
     const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
     const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
@@ -1770,32 +1772,150 @@
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
-        // Migrate old data to V2 format
-        migrateData();
-        
-        await loadGenres();
-        updateStats();
-        renderWatchlist();
-        updateGenreFilters();
-        
-        document.getElementById('searchInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') search();
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            // Esc to close modal
-            if (e.key === 'Escape') {
-                const modal = document.getElementById('movieModal');
-                if (modal.classList.contains('active')) {
-                    closeModal();
-                    e.preventDefault();
-                }
+        try {
+            // Initialize V2 features with error recovery
+            try {
+                initLists();
+            } catch (e) {
+                console.warn('Lists init failed:', e);
+                allLists = [{id: 'default', name: 'Main', icon: '🎬', color: '#6366f1', created: new Date().toISOString()}];
             }
             
-            // / to focus search
-            if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
-                document.getElementById('searchInput').focus();
+            try {
+                loadSettings();
+            } catch (e) {
+                console.warn('Settings load failed:', e);
+            }
+            
+            try {
+                migrateData();
+            } catch (e) {
+                console.warn('Migration failed:', e);
+            }
+            
+            // Try to load genres, but don't break if it fails
+            try {
+                await loadGenres();
+            } catch (error) {
+                console.warn('Genre loading failed (app will work without genres):', error);
+                // Initialize empty genre objects so the app doesn't break
+                movieGenres = {};
+                showGenres = {};
+            }
+            
+            // Core rendering with fallbacks
+            try {
+                updateStats();
+            } catch (e) {
+                console.warn('Stats update failed:', e);
+            }
+            
+            try {
+                renderWatchlist();
+            } catch (e) {
+                console.warn('Render failed:', e);
+            }
+            
+            try {
+                updateGenreFilters();
+            } catch (e) {
+                console.warn('Genre filter update failed:', e);
+            }
+            
+            // Event listeners with null checks
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') search();
+                });
+            }
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                try {
+                    // Esc to close modal
+                    if (e.key === 'Escape') {
+                        const modal = document.getElementById('movieModal');
+                        const keyboardModal = document.getElementById('keyboardModal');
+                        if (modal && modal.classList.contains('active')) {
+                            closeModal();
+                            e.preventDefault();
+                        } else if (keyboardModal && keyboardModal.classList.contains('active')) {
+                            closeKeyboardModal();
+                            e.preventDefault();
+                        }
+                    }
+                    
+                    // / to focus search
+                    if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+                        const input = document.getElementById('searchInput');
+                        if (input) {
+                            input.focus();
+                            e.preventDefault();
+                        }
+                    }
+
+                    // ? for keyboard shortcuts help
+                    if (e.key === '?' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+                        showKeyboardShortcuts();
+                        e.preventDefault();
+                    }
+
+                    // Ctrl/Cmd + K for quick search
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                        const input = document.getElementById('searchInput');
+                        if (input) {
+                            input.focus();
+                            e.preventDefault();
+                        }
+                    }
+                } catch (error) {
+                    console.warn('Keyboard shortcut error:', error);
+                }
+            });
+
+            // Event delegation for watchlist
+            const watchlist = document.getElementById('watchlist');
+            if (watchlist) {
+                watchlist.addEventListener('click', handleWatchlistClick);
+            }
+
+            // Back to top button visibility
+            window.addEventListener('scroll', () => {
+                try {
+                    const backToTop = document.getElementById('backToTop');
+                    if (backToTop) {
+                        if (window.scrollY > 300) {
+                            backToTop.classList.add('visible');
+                        } else {
+                            backToTop.classList.remove('visible');
+                        }
+                    }
+                } catch (error) {
+                    console.warn('Scroll handler error:', error);
+                }
+            });
+
+            // Check for milestones
+            try {
+                checkMilestones();
+            } catch (e) {
+                console.warn('Milestone check failed:', e);
+            }
+            
+            console.log('✅ CineTrack V2 initialized successfully!');
+        } catch (error) {
+            console.error('CRITICAL: Initialization failed:', error);
+            // Show error to user
+            document.body.innerHTML += `
+                <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #ef4444; color: white; padding: 30px; border-radius: 20px; text-align: center; z-index: 10000;">
+                    <h2>⚠️ Initialization Error</h2>
+                    <p>Please refresh the page or clear your browser cache.</p>
+                    <button onclick="location.reload()" style="margin-top: 20px; padding: 10px 20px; background: white; color: #ef4444; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">Refresh Page</button>
+                </div>
+            `;
+        }
+    });
                 e.preventDefault();
             }
         });
@@ -1812,6 +1932,11 @@
                 backToTop.classList.remove('visible');
             }
         });
+
+        // Check for milestones
+        checkMilestones();
+        
+        console.log('✅ CineTrack V2 loaded successfully!');
     });
 
     // Scroll to top function
@@ -2044,16 +2169,24 @@
 
     async function loadGenres() {
         try {
-            // Load movie genres
-            const movieResponse = await fetch(`${TMDB_BASE_URL}/genre/movie/list?api_key=${TMDB_API_KEY}&language=en-US`);
+            // Load movie genres with timeout
+            const movieResponse = await fetchWithTimeout(
+                `${TMDB_BASE_URL}/genre/movie/list?api_key=${TMDB_API_KEY}&language=en-US`,
+                {},
+                8000
+            );
             if (movieResponse.ok) {
                 const movieData = await movieResponse.json();
                 movieGenres = {};
                 movieData.genres.forEach(g => movieGenres[g.id] = g.name);
             }
 
-            // Load TV genres
-            const tvResponse = await fetch(`${TMDB_BASE_URL}/genre/tv/list?api_key=${TMDB_API_KEY}&language=en-US`);
+            // Load TV genres with timeout
+            const tvResponse = await fetchWithTimeout(
+                `${TMDB_BASE_URL}/genre/tv/list?api_key=${TMDB_API_KEY}&language=en-US`,
+                {},
+                8000
+            );
             if (tvResponse.ok) {
                 const tvData = await tvResponse.json();
                 showGenres = {};
@@ -2062,21 +2195,33 @@
 
             updateGenreDropdown();
         } catch (error) {
-            console.error('Failed to load genres:', error);
+            console.warn('Failed to load genres (app will work without genres):', error);
+            // Ensure genres are initialized even on error
+            if (!movieGenres) movieGenres = {};
+            if (!showGenres) showGenres = {};
         }
     }
 
     function updateGenreDropdown() {
-        const genreSelect = document.getElementById('genreFilter');
-        genreSelect.innerHTML = '<option value="">All Genres</option>';
-        
-        const genres = currentMode === 'movies' ? movieGenres : showGenres;
-        Object.entries(genres).forEach(([id, name]) => {
-            const option = document.createElement('option');
-            option.value = id;
-            option.textContent = name;
-            genreSelect.appendChild(option);
-        });
+        try {
+            const genreSelect = document.getElementById('genreFilter');
+            if (!genreSelect) {
+                console.warn('Genre dropdown element not found');
+                return;
+            }
+            
+            genreSelect.innerHTML = '<option value="">All Genres</option>';
+            
+            const genres = currentMode === 'movies' ? (movieGenres || {}) : (showGenres || {});
+            Object.entries(genres).forEach(([id, name]) => {
+                const option = document.createElement('option');
+                option.value = id;
+                option.textContent = name;
+                genreSelect.appendChild(option);
+            });
+        } catch (error) {
+            console.warn('updateGenreDropdown error:', error);
+        }
     }
 
     function toggleBulkMode() {
@@ -3236,25 +3381,36 @@ Stranger Things
     }
 
     function updateGenreFilters() {
-        const list = getCurrentList();
-        const allGenres = new Set();
-        list.forEach(item => {
-            item.genres.forEach(genre => allGenres.add(genre));
-        });
+        try {
+            const list = getCurrentList();
+            const allGenres = new Set();
+            list.forEach(item => {
+                if (item.genres && Array.isArray(item.genres)) {
+                    item.genres.forEach(genre => allGenres.add(genre));
+                }
+            });
 
-        const select = document.getElementById('myGenreFilter');
-        const currentValue = select.value;
-        
-        select.innerHTML = '<option value="">All Genres</option>';
-        Array.from(allGenres).sort().forEach(genre => {
-            const option = document.createElement('option');
-            option.value = genre;
-            option.textContent = genre;
-            select.appendChild(option);
-        });
+            const select = document.getElementById('myGenreFilter');
+            if (!select) {
+                console.warn('Genre filter element not found');
+                return;
+            }
+            
+            const currentValue = select.value;
+            
+            select.innerHTML = '<option value="">All Genres</option>';
+            Array.from(allGenres).sort().forEach(genre => {
+                const option = document.createElement('option');
+                option.value = genre;
+                option.textContent = genre;
+                select.appendChild(option);
+            });
 
-        if (currentValue && allGenres.has(currentValue)) {
-            select.value = currentValue;
+            if (currentValue && allGenres.has(currentValue)) {
+                select.value = currentValue;
+            }
+        } catch (error) {
+            console.warn('updateGenreFilters error:', error);
         }
     }
 
